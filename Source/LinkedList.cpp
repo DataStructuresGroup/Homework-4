@@ -3,7 +3,11 @@
 
 #pragma region Inclusions
 #include <iostream>			// Input and Output
-#include <cstring>			// Used for the 'NULL' keyword, despite that it is '0' or 'OL', but keep this for convention sakes.
+#include <cstring>			// Used for the 'NULL' keyword, despite that it
+							//  is '0' or 'OL', but keep this for convention
+							//  sakes.
+#include <stdlib.h>			// Used for the rand() function
+#include <time.h>			// Used for the srand() funtion
 #include "LinkedList.h"		// Implementation for Link List.
 #pragma endregion
 
@@ -121,4 +125,84 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 	// Success!
 	return true;
 } // Update_Passenger_Information()
+
+
+
+// ===============================================
+// Documentation:
+//	This function will automatically populate and generate a reasonably
+//   sized list.
+// -----------------------------------------------
+// Parameters:
+//	head [Node*]
+//		This will take any valid link list.
+// ===============================================
+inline void Autofill_List(Node** head)
+{
+	// Create a new list to generate
+	Node* autoList;
+
+	// __HARD_CODED__
+	// Update this algorithm with caution!
+	//---
+	// To auto-generate, we are going to throw hard-coded values
+	// to the link list.  This will greatly allow us to debug or
+	// generally work with the list.
+	for (int i = 0; i < 20; ++i)
+	{
+		switch (i)
+		{
+		case 0:
+			autoList->nameFirst = "";
+			autoList->nameLast = "";
+			autoList->passengerID = rand() % 9999 + 1;
+			autoList->reservationNum = rand() % 999 + 100;
+			autoList->telephoneNum = rand() % 8999999999 + 1000000000;
+			autoList->seatNum = "";
+			autoList->mealType = "";
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		case 10:
+			break;
+		case 11:
+			break;
+		case 12:
+			break;
+		case 13:
+			break;
+		case 14:
+			break;
+		case 15:
+			break;
+		case 16:
+			break;
+		case 17:
+			break;
+		case 18:
+			break;
+		case 19:
+			break;
+		} // switch
+	} // for
+
+	// Append the list to the primary link list
+	*head = autoList;
+} // Autofill_List()
 #endif // !__LinkList__Implementation__
