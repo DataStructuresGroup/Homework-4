@@ -238,8 +238,8 @@ inline std::string Autofill_List_MealChoice()
 inline void Autofill_List(Node** head)
 {
 	// Create a new list to generate
-	Node* autoList = new Node;
-	autoList = *head;
+	Node* autoList = *head;
+	autoList = new Node;
 
 	// __HARD_CODED__
 	// Update this algorithm with caution!
@@ -444,12 +444,13 @@ inline void Autofill_List(Node** head)
 		} // switch
 
 		// Move to the next node
-		autoList->next = NULL;
+		autoList->next = new Node;
 	} // for
 
 	// Append the list to the primary link list
 	*head = autoList;
 } // Autofill_List()
+
 
 bool search_node(int key)
 
