@@ -132,6 +132,9 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 // Documentation:
 //	This function will automatically populate and generate a reasonably
 //   sized list.
+// Notes:
+//   I feel like a tool for using 'babynames.com' to populate
+//   with random names....
 // -----------------------------------------------
 // Parameters:
 //	head [Node*]
@@ -153,51 +156,193 @@ inline void Autofill_List(Node** head)
 		switch (i)
 		{
 		case 0:
-			autoList->nameFirst = "";
-			autoList->nameLast = "";
-			autoList->passengerID = rand() % 9999 + 1;
-			autoList->reservationNum = rand() % 999 + 100;
-			autoList->telephoneNum = rand() % 8999999999 + 1000000000;
+			autoList->nameFirst = "Fabian";
+			autoList->nameLast = "Nadie";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
 			autoList->seatNum = "";
-			autoList->mealType = "";
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 1:
+			autoList->nameFirst = "Ganit";
+			autoList->nameLast = "Ume";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 2:
+			autoList->nameFirst = "Dan";
+			autoList->nameLast = "Randi";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 3:
+			autoList->nameFirst = "Reese";
+			autoList->nameLast = "Nafisa";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 4:
+			autoList->nameFirst = "Nina";
+			autoList->nameLast = "Albany";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 5:
+			autoList->nameFirst = "Alexis";
+			autoList->nameLast = "Wayne";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 6:
+			autoList->nameFirst = "Rani";
+			autoList->nameLast = "Falcon";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 7:
+			autoList->nameFirst = "Yasmine";
+			autoList->nameLast = "Benicia";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 8:
+			autoList->nameFirst = "Al";
+			autoList->nameLast = "Bundy";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 9:
+			autoList->nameFirst = "Janeeva";
+			autoList->nameLast = "Zaina";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 10:
+			autoList->nameFirst = "Ofra";
+			autoList->nameLast = "Sable";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 11:
+			autoList->nameFirst = "Nadalia";
+			autoList->nameLast = "Hao";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 12:
+			autoList->nameFirst = "Hana";
+			autoList->nameLast = "Starr";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 13:
+			autoList->nameFirst = "Ashia";
+			autoList->nameLast = "Bäddan";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 14:
+			autoList->nameFirst = "Qi";
+			autoList->nameLast = "Wahponjea";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 15:
+			autoList->nameFirst = "Hali";
+			autoList->nameLast = "Eamon";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 16:
+			autoList->nameFirst = "Tai Yang";
+			autoList->nameLast = "Taipa";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 17:
+			autoList->nameFirst = "Achava";
+			autoList->nameLast = "Nili";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 18:
+			autoList->nameFirst = "John";
+			autoList->nameLast = "Hancock";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 19:
+			// Deal with it
+			autoList->nameFirst = "Theodore";
+			autoList->nameLast = "Roosevelt";
+			autoList->passengerID = Autofill_List_Numbers(0);
+			autoList->reservationNum = Autofill_List_Numbers(1);
+			autoList->telephoneNum = Autofill_List_Numbers(2);
+
+			autoList->mealType = Autofill_List_MealChoice();
+			break;
+		default:
+			autoList->nameFirst = "Jenny";
+			autoList->nameLast = "Tommy Tutone";
+			autoList->passengerID = -919;
+			autoList->reservationNum = -919;
+			autoList->telephoneNum = 8675309; // https://youtu.be/8ou6DDG5e7I
+			autoList->mealType = "MRE"; // Military acronym for 'Meal Ready to Eat', its horrible.
 			break;
 		} // switch
 	} // for
@@ -205,4 +350,87 @@ inline void Autofill_List(Node** head)
 	// Append the list to the primary link list
 	*head = autoList;
 } // Autofill_List()
+
+
+
+// ===============================================
+// Documentation:
+//	This function will provide an easier way to manage
+//   randomized numbers for populating the passenger
+//	 information.
+// -----------------------------------------------
+// Parameters:
+//	key [int]
+//		This will allow us to provide a random number
+//		based on what attribute we are requesting.
+//		Acceptable Key Values:
+//		0 = Passenger ID
+//		1 = Reservation Number
+//		2 = Telephone Number
+// -----------------------------------------------
+// Output:
+//	Returns a specific, though randomized, integer based on the
+//   key used.
+// ===============================================
+inline int Autofill_List_Numbers(int key)
+{
+	switch (key)
+	{
+	case 0:
+		// Passenger ID
+		return rand() % 9999 + 1;
+		break;
+	case 1:
+		// Reservation Number
+		return rand() % 999 + 100;
+		break;
+	case 2:
+		// Telephone Numbers
+		return rand() % 8999999999 + 1000000000;
+		break;
+	default:
+		// Error
+		return -255;
+		break;
+	} // switch
+} // Autofill_List_Numbers()
+
+
+
+// ===============================================
+// Documentation:
+//	This function will provide a randomized choice of
+//  the <del>horrible</del> best foods available
+//  in Blue-Sky Air Lines!
+//
+//  The list is inspired by Indiana Jones Temple of Doom
+// -----------------------------------------------
+// Output:
+//	string
+//		A randomized string output of the desired
+//      food or meal that the passenger is willing
+//      order.
+// ===============================================
+inline std::string Autofill_List_MealChoice()
+{
+	int choice = rand() % 4;
+	switch (choice)
+	{
+	case 0:
+		return "Monkey Brains";
+		break;
+	case 1:
+		return "Tuna Eyeballs";
+		break;
+	case 2:
+		return "Raw Octopus";
+		break;
+	case 3:
+		return "Fish"; // https://youtu.be/rQbj9uvYL8I
+		break;
+	default:
+		return "Expired Peanuts";
+		break;
+	} // switch
+} // Autofill_List_MealChoice()
 #endif // !__LinkList__Implementation__
