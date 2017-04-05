@@ -370,7 +370,7 @@ inline void Autofill_List(Node** head)
 			break;
 		case 13:
 			autoList->nameFirst = "Ashia";
-			autoList->nameLast = "Bäddan";
+			autoList->nameLast = "BÃ¤ddan";
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
@@ -450,4 +450,42 @@ inline void Autofill_List(Node** head)
 	// Append the list to the primary link list
 	*head = autoList;
 } // Autofill_List()
+
+bool search_node(int key)
+
+{ node*temp=head;
+pre = NULL;
+
+cur = temp;
+
+while(cur != NULL)
+{
+
+if (cur-> key ==key)
+ {return true;
+}
+else{
+pre = cur;
+cur = cur->next;
+
+}
+return false;
+
+
+
+bool delete_node(int key){
+cout << "Enter what you want to delete:";
+cin >> key;
+
+if (search_node(key))
+{
+ pre->next = cur->next;
+ delete cur;
+ return true;
+}
+else{
+cout "ERRROR this is not in the list!" << endl;
+return false;
+}
+
 #endif // !__LinkList__Implementation__
