@@ -23,7 +23,7 @@ struct Node
 	// Data within the node
 	std::string nameFirst;		// Holds the passenger's first name
 	std::string nameLast;		// Holds the passenger's last name
-	int passangerID;			// Retains the passenger's ID
+	int passengerID;			// Retains the passenger's ID
 	int reservationNum;			// Retains the passenger's reservation number
 	int telephoneNum;			// Holds the passenger's preferred phone number.
 	std::string seatNum;		// Holds the passenger's seat number
