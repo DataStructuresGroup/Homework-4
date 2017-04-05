@@ -18,8 +18,7 @@
 // ======================
 
 
-template<class T>
-struct LinkedList
+struct Node
 {
 	// Data within the node
 	std::string nameFirst;		// Holds the passenger's first name
@@ -33,11 +32,11 @@ struct LinkedList
 								//  instead they use alphabets AND numbers.
 								//  for example: A1, B3, and H2.
 								//  With this, we will just use a string.
-	std::string mealType		// What meal does the passenger want during the flight?
+	std::string mealType;		// What meal does the passenger want during the flight?
 
 	//----
 
 	// Next node
-	Node* Next;					// Point to the next node
+	Node* next;					// Point to the next node
 };
 #endif // !__LinkedList__
