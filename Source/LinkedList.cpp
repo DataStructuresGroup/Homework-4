@@ -8,6 +8,7 @@
 #pragma endregion
 
 
+
 // ===============================================
 // Documentation:
 //	This function will output all of the information within the link list.
@@ -16,7 +17,7 @@
 //	head [Node*]
 //		This will take any valid link list.
 // ===============================================
-inline void Print_List(Node* head)
+inline void Print_Passenger_List(Node* head)
 {
 	// Cache all of the items from the parent and store it to a cache var.
 	Node* cache = head;
