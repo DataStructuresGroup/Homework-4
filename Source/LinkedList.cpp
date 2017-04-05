@@ -130,6 +130,101 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 
 // ===============================================
 // Documentation:
+//	This function will provide an easier way to manage
+//   randomized numbers for populating the passenger
+//	 information.
+// -----------------------------------------------
+// Parameters:
+//	key [int]
+//		This will allow us to provide a random number
+//		based on what attribute we are requesting.
+//		Acceptable Key Values:
+//		0 = Passenger ID
+//		1 = Reservation Number
+//		2 = Telephone Number
+// -----------------------------------------------
+// Output:
+//	Returns a specific, though randomized, integer based on the
+//   key used.
+// ===============================================
+inline int Autofill_List_Numbers(int key)
+{
+	// Because we want serious randomness in this lousy program!
+	srand(NULL);
+
+	// Determine the requested type to return
+	switch (key)
+	{
+	case 0:
+		// Passenger ID
+		return rand() % 9999 + 1;
+		break;
+	case 1:
+		// Reservation Number
+		return rand() % 999 + 100;
+		break;
+	case 2:
+		// Telephone Numbers
+		return rand() % 8999999999 + 1000000000;
+		break;
+	default:
+		// Error
+		return -255;
+		break;
+	} // switch
+} // Autofill_List_Numbers()
+
+
+
+// ===============================================
+// Documentation:
+//	This function will provide a randomized choice of
+//  the <del>horrible</del> best foods available
+//  in Blue-Sky Air Lines!
+//
+//  The list is inspired by Indiana Jones Temple of Doom
+// -----------------------------------------------
+// Output:
+//	string
+//		A randomized string output of the desired
+//      food or meal that the passenger is willing
+//      order.
+// ===============================================
+inline std::string Autofill_List_MealChoice()
+{
+	// Give us more randomness
+	srand(NULL);
+
+	// Randomly pick a number that will
+	// allow us to choose which meal the
+	// passenger is going to eat.
+	int choice = rand() % 4;
+
+	// Evaluate the choice and return the appropriate value.
+	switch (choice)
+	{
+	case 0:
+		return "Monkey Brains";
+		break;
+	case 1:
+		return "Tuna Eyeballs";
+		break;
+	case 2:
+		return "Raw Octopus";
+		break;
+	case 3:
+		return "Fish"; // https://youtu.be/rQbj9uvYL8I
+		break;
+	default:
+		return "Expired Peanuts";
+		break;
+	} // switch
+} // Autofill_List_MealChoice()
+
+
+
+// ===============================================
+// Documentation:
 //	This function will automatically populate and generate a reasonably
 //   sized list.
 // Notes:
@@ -354,99 +449,4 @@ inline void Autofill_List(Node** head)
 	// Append the list to the primary link list
 	*head = autoList;
 } // Autofill_List()
-
-
-
-// ===============================================
-// Documentation:
-//	This function will provide an easier way to manage
-//   randomized numbers for populating the passenger
-//	 information.
-// -----------------------------------------------
-// Parameters:
-//	key [int]
-//		This will allow us to provide a random number
-//		based on what attribute we are requesting.
-//		Acceptable Key Values:
-//		0 = Passenger ID
-//		1 = Reservation Number
-//		2 = Telephone Number
-// -----------------------------------------------
-// Output:
-//	Returns a specific, though randomized, integer based on the
-//   key used.
-// ===============================================
-inline int Autofill_List_Numbers(int key)
-{
-	// Because we want serious randomness in this lousy program!
-	srand(NULL);
-
-	// Determine the requested type to return
-	switch (key)
-	{
-	case 0:
-		// Passenger ID
-		return rand() % 9999 + 1;
-		break;
-	case 1:
-		// Reservation Number
-		return rand() % 999 + 100;
-		break;
-	case 2:
-		// Telephone Numbers
-		return rand() % 8999999999 + 1000000000;
-		break;
-	default:
-		// Error
-		return -255;
-		break;
-	} // switch
-} // Autofill_List_Numbers()
-
-
-
-// ===============================================
-// Documentation:
-//	This function will provide a randomized choice of
-//  the <del>horrible</del> best foods available
-//  in Blue-Sky Air Lines!
-//
-//  The list is inspired by Indiana Jones Temple of Doom
-// -----------------------------------------------
-// Output:
-//	string
-//		A randomized string output of the desired
-//      food or meal that the passenger is willing
-//      order.
-// ===============================================
-inline std::string Autofill_List_MealChoice()
-{
-	// Give us more randomness
-	srand(NULL);
-
-	// Randomly pick a number that will
-	// allow us to choose which meal the
-	// passenger is going to eat.
-	int choice = rand() % 4;
-
-	// Evaluate the choice and return the appropriate value.
-	switch (choice)
-	{
-	case 0:
-		return "Monkey Brains";
-		break;
-	case 1:
-		return "Tuna Eyeballs";
-		break;
-	case 2:
-		return "Raw Octopus";
-		break;
-	case 3:
-		return "Fish"; // https://youtu.be/rQbj9uvYL8I
-		break;
-	default:
-		return "Expired Peanuts";
-		break;
-	} // switch
-} // Autofill_List_MealChoice()
 #endif // !__LinkList__Implementation__
