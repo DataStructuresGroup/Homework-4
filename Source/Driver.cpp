@@ -19,6 +19,12 @@
 // ============================================================================================
 
 
+#pragma region Inclusions
+#include <iostream>			// Used for Input and Output
+#include "LinkedList.h"		// Link List header; containing the link list methodology.
+#include "LinkedList.cpp"	// Implementations for emulating the Link List behaviors and procedures.
+#pragma endregion
+
 
 
 // Main
@@ -30,5 +36,11 @@ int main()
 	// Reservation bluesky;
 	// bluesky.start();
 
+	Node* head;
+	head = NULL;
+
+	Autofill_List(&head); // Autofill
+	Print_Passenger_List(head); // provide a list
+	system("PAUSE"); // stop the terminal from closing immediately
 	return 0;
 } // main()
