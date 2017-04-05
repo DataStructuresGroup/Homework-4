@@ -452,6 +452,7 @@ inline void Autofill_List(Node** head)
 } // Autofill_List()
 
 
+/*
 bool search_node(int key)
 
 { node*temp=head;
@@ -488,5 +489,5 @@ else{
 cout "ERRROR this is not in the list!" << endl;
 return false;
 }
-
+*/
 #endif // !__LinkList__Implementation__
