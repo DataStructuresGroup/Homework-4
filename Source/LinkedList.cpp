@@ -150,7 +150,7 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 inline int Autofill_List_Numbers(int key)
 {
 	// Because we want serious randomness in this lousy program!
-	srand(NULL);
+	srand(time(NULL));
 
 	// Determine the requested type to return
 	switch (key)
@@ -193,7 +193,7 @@ inline int Autofill_List_Numbers(int key)
 inline std::string Autofill_List_MealChoice()
 {
 	// Give us more randomness
-	srand(NULL);
+	srand(time(NULL));
 
 	// Randomly pick a number that will
 	// allow us to choose which meal the
@@ -238,7 +238,8 @@ inline std::string Autofill_List_MealChoice()
 inline void Autofill_List(Node** head)
 {
 	// Create a new list to generate
-	Node* autoList;
+	Node* autoList = new Node;
+	autoList = *head;
 
 	// __HARD_CODED__
 	// Update this algorithm with caution!
@@ -246,7 +247,7 @@ inline void Autofill_List(Node** head)
 	// To auto-generate, we are going to throw hard-coded values
 	// to the link list.  This will greatly allow us to debug or
 	// generally work with the list.
-	for (int i = 0; i < 20; ++i)
+	for (int i = 0; i < 20; i++)
 	{
 		switch (i)
 		{
@@ -443,7 +444,7 @@ inline void Autofill_List(Node** head)
 		} // switch
 
 		// Move to the next node
-		autoList->next;
+		autoList->next = NULL;
 	} // for
 
 	// Append the list to the primary link list
