@@ -161,7 +161,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "";
+			autoList->seatNum = "A1";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 1:
@@ -170,7 +170,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A2";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 2:
@@ -179,7 +179,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A3";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 3:
@@ -188,7 +188,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A4";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 4:
@@ -197,7 +197,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A5";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 5:
@@ -206,7 +206,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A6";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 6:
@@ -215,7 +215,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A7";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 7:
@@ -224,7 +224,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A8";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 8:
@@ -233,7 +233,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "A9";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 9:
@@ -242,7 +242,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B1";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 10:
@@ -251,7 +251,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B2";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 11:
@@ -260,7 +260,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B3";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 12:
@@ -269,7 +269,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B4";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 13:
@@ -278,7 +278,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B5";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 14:
@@ -287,7 +287,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B6";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 15:
@@ -296,7 +296,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B7";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 16:
@@ -305,7 +305,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B8";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 17:
@@ -314,7 +314,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "B9";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 18:
@@ -323,7 +323,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "C1";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		case 19:
@@ -333,7 +333,7 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = Autofill_List_Numbers(0);
 			autoList->reservationNum = Autofill_List_Numbers(1);
 			autoList->telephoneNum = Autofill_List_Numbers(2);
-
+			autoList->seatNum = "C2";
 			autoList->mealType = Autofill_List_MealChoice();
 			break;
 		default:
@@ -342,9 +342,13 @@ inline void Autofill_List(Node** head)
 			autoList->passengerID = -919;
 			autoList->reservationNum = -919;
 			autoList->telephoneNum = 8675309; // https://youtu.be/8ou6DDG5e7I
+			autoList->seatNum = "ZZ";
 			autoList->mealType = "MRE"; // Military acronym for 'Meal Ready to Eat', its horrible.
 			break;
 		} // switch
+
+		// Move to the next node
+		autoList->next;
 	} // for
 
 	// Append the list to the primary link list
@@ -374,6 +378,10 @@ inline void Autofill_List(Node** head)
 // ===============================================
 inline int Autofill_List_Numbers(int key)
 {
+	// Because we want serious randomness in this lousy program!
+	srand(NULL);
+
+	// Determine the requested type to return
 	switch (key)
 	{
 	case 0:
@@ -413,7 +421,15 @@ inline int Autofill_List_Numbers(int key)
 // ===============================================
 inline std::string Autofill_List_MealChoice()
 {
+	// Give us more randomness
+	srand(NULL);
+
+	// Randomly pick a number that will
+	// allow us to choose which meal the
+	// passenger is going to eat.
 	int choice = rand() % 4;
+
+	// Evaluate the choice and return the appropriate value.
 	switch (choice)
 	{
 	case 0:
