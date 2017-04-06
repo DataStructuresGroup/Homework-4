@@ -1,3 +1,4 @@
+
 // This merely holds the LinkedList struct.  The related functions can be located at:
 //  LinkedList.cpp.
 #ifndef __LinkedList__
@@ -26,12 +27,7 @@ struct Node
 	int passengerID;			// Retains the passenger's ID
 	int reservationNum;			// Retains the passenger's reservation number
 	int telephoneNum;			// Holds the passenger's preferred phone number.
-	std::string seatNum;		// Holds the passenger's seat number
-								//	from personal experience, the seat 'number' is
-								//  a huge misnomer as no airliner uses only numbers.
-								//  instead they use alphabets AND numbers.
-								//  for example: A1, B3, and H2.
-								//  With this, we will just use a string.
+	int seatNum;				// Holds the passenger's seat number
 	std::string mealType;		// What meal does the passenger want during the flight?
 
 	//----
