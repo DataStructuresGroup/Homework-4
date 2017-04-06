@@ -567,6 +567,11 @@ inline void Autofill_List(Node** head)
 
 
 
+// BK, please fix this code to work with our model!
+//  Please talk to Kyle for more information.
+//  Failure will result in a default action.
+//  Regards,
+//  -Nicholas
 /*
 bool search_node(int key)
 
