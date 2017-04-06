@@ -646,7 +646,7 @@ inline bool UserInput_Bool(bool UsePrompt = true)
 	std::cin >> userInput;		// Capture the input
 
 
-	if (tolower(UsePrompt) == 'y') // See if 'Yes' was selected
+	if (tolower(userInput) == 'y') // See if 'Yes' was selected
 		return true;		// Yes
 	else
 		return false;		// No
@@ -677,13 +677,13 @@ inline std::string ManualCustomerAdd_MealChoice()
 		<< " 4) Fish" << std::endl
 		<< " 5) Expired Peanuts" << std::endl << std::endl;
 
-	// Get the customer's request
-	userChoice = UserInput_Number();
-
 	// Prevent bad input; run away protection
 	bool badInputCatch;
 	do
 	{
+		// Get the customer's request
+		userChoice = UserInput_Number();
+
 		// Process the user's request
 		switch (userChoice)
 		{
