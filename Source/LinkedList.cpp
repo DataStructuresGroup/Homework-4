@@ -1,6 +1,8 @@
 #ifndef __LinkList__Implementation__		// For those using Visual Studio, lets try to avoid LNK2004 errors...
 #define __LinkList__Implementation__
 
+#define PlaneSize 80		// Small commercial plane [Boeing?]
+
 #pragma region Inclusions
 #include <iostream>			// Input and Output
 #include <cstring>			// Used for the 'NULL' keyword, despite that it
@@ -564,6 +566,222 @@ inline void Autofill_List(Node** head)
 		} // switch
 	} // for
 } // Autofill_List()
+
+
+
+// User Input [String]
+// ===============================================
+// Documentation:
+//	This function will allow the user to input a specific string into the program.
+// -----------------------------------------------
+// Parameters:
+//	UsePrompt [bool]
+//		If true, this will provide the python'ish prompt.
+// -----------------------------------------------
+// Output:
+//	string
+//		Returns a string captured from STDIN.
+// ===============================================
+inline std::string UserInput_String(bool UsePrompt = true)
+{
+	std::string userInput;		// Use this to capture the STDIN
+
+	if (UsePrompt)
+		std::cout << ">>>>> ";	// The python'ish prompt
+
+	std::cin >> userInput;		// Capture the input
+
+	return userInput;			// Return the value.
+} // UserInput_String()
+
+
+
+// User Input [Number]
+// ===============================================
+// Documentation:
+//	This function will allow the user to input a specific number into the program.
+// -----------------------------------------------
+// Parameters:
+//	UsePrompt [bool]
+//		If true, this will provide the python'ish prompt.
+// -----------------------------------------------
+// Output:
+//	int
+//		Returns an int captured from STDIN.
+// ===============================================
+inline int UserInput_Number(bool UsePrompt = true)
+{
+	int userInput;				// Use this to capture the STDIN
+
+	if (UsePrompt)
+		std::cout << ">>>>> ";	// The python'ish prompt
+
+	std::cin >> userInput;		// Capture the input
+
+	return userInput;			// Return the value.
+} // UserInput_Number()
+
+
+
+// User Input [Bool]
+// ===============================================
+// Documentation:
+//	This function will allow the user to input a yes or no into the program.
+// -----------------------------------------------
+// Parameters:
+//	UsePrompt [bool]
+//		If true, this will provide the python'ish prompt.
+// -----------------------------------------------
+// Output:
+//	bool
+//		Returns a bool captured from STDIN.
+// ===============================================
+inline int UserInput_Bool(bool UsePrompt = true)
+{
+	bool userInput;				// Use this to capture the STDIN
+
+	if (UsePrompt)
+		std::cout << ">>>>> ";	// The python'ish prompt
+
+	std::cin >> userInput;		// Capture the input
+
+	return userInput;			// Return the value.
+} // UserInput_Bool()
+
+
+
+// Manual Customer Add [Meal Choice]
+// ===============================================
+// Documentation:
+//	I have decided to separate this chunk of code into its own function
+//	this way its a bit easier and the parent function is not so bloated.
+// -----------------------------------------------
+// Output:
+//	string
+//		Returns the preferred meal choice
+// ===============================================
+inline std::string ManualCustomerAdd_MealChoice()
+{
+	// We will use this to store the user's choice and then process it later.
+	int userChoice;
+
+	// Provide the inflight meal list:
+	std::cout << "Select a number: " << std::endl
+		<< "1) Monkey Brains" << std::endl
+		<< "2) Tuna Eyeballs" << std::endl
+		<< "3) Raw Octopus" << std::endl
+		<< "4) Fish" << std::endl
+		<< "5) Expired Peanuts" << std::endl << std::endl;
+
+	// Get the customer's request
+	userChoice = UserInput_Number();
+
+	// Prevent bad input; run away protection
+	bool badInputCatch;
+	do
+	{
+		// Process the user's request
+		switch (userChoice)
+		{
+		case '1':					// Monkey Brains
+			return "Monkey Brains";
+			break;
+		case '2':					// Tuna Eyeballs
+			return "Tuna Eyeballs";
+			break;
+		case '3':					// Raw Octopus
+			return "Raw Octopus";
+			break;
+		case '4':					// Fish
+			return "Fish";
+			break;
+		case '5':					// Expired Peanuts
+			return "Expired Peanuts";
+			break;
+		default:					// Bad Input
+			std::cout << "Incorrect option!" << std::endl;
+			badInputCatch = true;
+			break;
+		} // switch
+	} while (badInputCatch);
+} // ManualCustomerAdd_MealChoice()
+
+
+
+// Manual Customer add
+// ===============================================
+// Documentation:
+//	This will allow the end-user to manually create a new entry within the list.
+//	 Capture all fields possible and then run through the importing algorithm.
+// -----------------------------------------------
+// Parameters:
+//	head [Node**]
+//		The list in which is to be appended
+// ===============================================
+inline void ManualCustomerAdd(Node** head)
+{
+	// Declarations
+	// ------------------
+	std::string stdinNameFirst;
+	std::string stdinNameLast;
+	int stdinPhone;
+	std::string stdinMealChoice;
+	int stdinSeat;
+	// ----
+	// working variables
+	bool cacheNum;
+	// ------------------
+
+
+	// Provide instructions to the user
+	std::cout << "Please provide the following information:" << std::endl << std::endl;
+
+	// ----
+
+	// Capture first name:
+	std::cout << "First name: ";
+	stdinNameFirst = UserInput_String(false);
+	std::cout << std::endl;
+
+	// Capture last name:
+	std::cout << "Last name: ";
+	stdinNameLast = UserInput_String(false);
+	std::cout << std::endl;
+
+	// Capture telephone number:
+	std::cout << "Telephone number: ";
+	stdinPhone = UserInput_Number(false);
+	std::cout << std::endl;
+
+	// Capture preferred meal:
+	std::cout << "Inflight meal choice: " << std::endl;
+	stdinMealChoice = ManualCustomerAdd_MealChoice();
+	
+	// [optional] Seat
+	std::cout << "Preferred seating arrangement? [Y] = Yes | [N] = No";
+
+	if (UserInput_Bool)
+	{					// The customer has seating arrangements
+		std::cout << "Preferred seating: ";
+		stdinSeat = UserInput_Number(false);
+	} // if
+	else				// Automatically find the next available seat
+		stdinSeat = GetSeatAvailable();
+
+	std::cout << std::endl;
+
+	// ----
+
+	// Now that we have the information we need, now lets try to add this new entry into the list!
+	CreateNewNode(head,				// primary list
+		stdinNameFirst,				// First Name
+		stdinNameLast,				// Last Name
+		Autofill_List_Numbers(0),	// Passenger ID [919 area code ;)]
+		Autofill_List_Numbers(1),	// Reservation Num
+		stdinPhone,					// Telephone Num [reference: https://youtu.be/8ou6DDG5e7I ]
+		stdinSeat,					// Seat Num
+		stdinMealChoice);			// Preferred Meal -  Military acronym for 'Meal Ready to Eat', its horrible.
+} // ManualCustomerAdd()
 
 
 
