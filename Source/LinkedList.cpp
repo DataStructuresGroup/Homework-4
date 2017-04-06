@@ -23,18 +23,26 @@
 // ===============================================
 inline void Print_Passenger_List(Node* head)
 {
-	// Cache all of the items from the parent and store it to a cache var.
-	Node* cache = head;
+	// If head is empty, present an error message and leave this function.
+	if (head == NULL)
+	{
+		std::cout << "<!> ERROR <!>: No entries within the list are present!" << std::endl
+			<< "Nothing to print nor report!  Please generate or create a new list." << std::endl;
+		return;
+	} // if
+
 
 	// Output the available list with the information required.
-	while (cache != NULL)
+	while (head != NULL)
 	{
-		std::cout << "Passenger ID: " << cache->passengerID << std::endl
-			<< "Passenger Name: " << cache->nameLast << ", " << cache->nameFirst << std::endl
-			<< "Telephone Number: " << cache->telephoneNum << std::endl
-			<< "Reservation Number: " << cache->reservationNum << std::endl
-			<< "Seat on the plane: " << cache->seatNum << std::endl
-			<< "Preferred Meal Plan: " << cache->mealType << std::endl;
+		std::cout << "Passenger ID: " << head->passengerID << std::endl
+			<< "Passenger Name: " << head->nameLast << ", " << head->nameFirst << std::endl
+			<< "Telephone Number: " << head->telephoneNum << std::endl
+			<< "Reservation Number: " << head->reservationNum << std::endl
+			<< "Seat on the plane: " << head->seatNum << std::endl
+			<< "Preferred Meal Plan: " << head->mealType << std::endl;
+
+		head = head->next;
 	} // while
 } // Print_Passenger_List()
 
@@ -83,7 +91,7 @@ inline void Print_Passenger_List(Node* head)
 //	True:
 //		Failure; possibly the passenger does not exist.
 // ===============================================
-inline bool Update_Passenger_Information(Node** head, int passengerID, int updateKey, int reservation = -255, int contactPhone = -255, std::string seatNumber = "NA", std::string mealType = "NA")
+inline bool Update_Passenger_Information(Node** head, int passengerID, int updateKey, int reservation = -255, int contactPhone = -255, int seatNumber = -255, std::string mealType = "NA")
 {
 	// Check to see if at least node exists, if not - leave this function.
 	if (*head == NULL)
@@ -125,6 +133,78 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 	// Success!
 	return true;
 } // Update_Passenger_Information()
+
+
+
+// ===============================================
+// Documentation:
+//	This function will forward the new node (or data) onto
+//  the primary link list (or pointer)
+// -----------------------------------------------
+// Parameters:
+//	head [Node]
+//		The primary list that is to be updated.
+//	NewEntry [Node]
+//		New information that is to be merged or imported into the 'head'.
+// ===============================================
+inline void InsertNode(Node** head, Node* newEntry)
+{
+	if (*head == NULL)			// if the current list contains no entries
+		*head = newEntry;		//  then immediately add the temp entry to the list.
+	else
+	{
+		newEntry->next = *head;	// Import the primary list to the temp entry.
+		*head = newEntry;		// Export all of the entries from the temp
+								// list to the primary list.
+	}
+} // InsertNode()
+
+
+
+// ===============================================
+// Documentation:
+//	Generate a new entry to be imported into the primary list.
+//  This function will merely make sure that all information is
+//   present before allowing the new node to be official in the
+//   primary list.
+// -----------------------------------------------
+// Parameters:
+//	head [Node]
+//		The primary list that will soon include the new node entry.
+//  nameFirst [string]
+//		Client's first name
+//  nameLast [string]
+//		Client's last name
+//  passengerID [int]
+//		Client's Passenger ID
+//  reservationNum [int]
+//		Client's reservation ID
+//  telephoneNum [int]
+//		Client's telephone number
+//  seatNum [int]
+//		Client's seat number
+//  mealType [string]
+//		Client's requested meal.
+// ===============================================
+inline void CreateNewNode(Node** head, std::string nameFirst, std::string nameLast, int passengerID, int reservationNum, int telephoneNum, int seatNum, std::string mealType)
+{
+	// Create a new node to store the new information
+	Node* newEntry = new Node;
+	
+
+	// Generate the incoming data into the newly created node
+	newEntry->nameFirst = nameFirst;
+	newEntry->nameLast = nameLast;
+	newEntry->passengerID = passengerID;
+	newEntry->reservationNum = reservationNum;
+	newEntry->telephoneNum = telephoneNum;
+	newEntry->seatNum = seatNum;
+	newEntry->mealType = mealType;
+
+	newEntry->next = NULL;
+	// Import the data into the primary list
+	InsertNode(head, newEntry);
+} // CreateNewNode()
 
 
 
@@ -225,6 +305,22 @@ inline std::string Autofill_List_MealChoice()
 
 // ===============================================
 // Documentation:
+//	This function will merely provide the next available seat.
+// -----------------------------------------------
+// Output:
+//	Returns the seat ID that is available.
+// ===============================================
+inline int GetSeatAvailable()
+{
+	srand(time(NULL));
+
+	return rand() % 100 + 1;
+} // GetSeatAvailable()
+
+
+
+// ===============================================
+// Documentation:
 //	This function will automatically populate and generate a reasonably
 //   sized list.
 // Notes:
@@ -237,10 +333,6 @@ inline std::string Autofill_List_MealChoice()
 // ===============================================
 inline void Autofill_List(Node** head)
 {
-	// Create a new list to generate
-	Node* autoList = *head;
-	autoList = new Node;
-
 	// __HARD_CODED__
 	// Update this algorithm with caution!
 	//---
@@ -252,204 +344,219 @@ inline void Autofill_List(Node** head)
 		switch (i)
 		{
 		case 0:
-			autoList->nameFirst = "Fabian";
-			autoList->nameLast = "Nadie";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A1";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Fabian",					// First Name
+						"Nadie",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 1:
-			autoList->nameFirst = "Ganit";
-			autoList->nameLast = "Ume";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A2";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Ganit",					// First Name
+						"Ume",						// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 2:
-			autoList->nameFirst = "Dan";
-			autoList->nameLast = "Randi";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A3";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Dan",						// First Name
+						"Randi",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 3:
-			autoList->nameFirst = "Reese";
-			autoList->nameLast = "Nafisa";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A4";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Reese",					// First Name
+						"Nafisa",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 4:
-			autoList->nameFirst = "Nina";
-			autoList->nameLast = "Albany";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A5";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Nina",						// First Name
+						"Albany",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 5:
-			autoList->nameFirst = "Alexis";
-			autoList->nameLast = "Wayne";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A6";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Alexis",					// First Name
+						"Wayne",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 6:
-			autoList->nameFirst = "Rani";
-			autoList->nameLast = "Falcon";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A7";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Rani",						// First Name
+						"Falcon",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 7:
-			autoList->nameFirst = "Yasmine";
-			autoList->nameLast = "Benicia";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A8";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Yasmine",					// First Name
+						"Benicia",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 8:
-			autoList->nameFirst = "Al";
-			autoList->nameLast = "Bundy";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "A9";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Al",						// First Name
+						"Bundy",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 9:
-			autoList->nameFirst = "Janeeva";
-			autoList->nameLast = "Zaina";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B1";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Janeeva",					// First Name
+						"Zaina",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 10:
-			autoList->nameFirst = "Ofra";
-			autoList->nameLast = "Sable";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B2";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Ofra",						// First Name
+						"Sable",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 11:
-			autoList->nameFirst = "Nadalia";
-			autoList->nameLast = "Hao";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B3";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Nadalia",					// First Name
+						"Hao",						// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 12:
-			autoList->nameFirst = "Hana";
-			autoList->nameLast = "Starr";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B4";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Hana",						// First Name
+						"Starr",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 13:
-			autoList->nameFirst = "Ashia";
-			autoList->nameLast = "Bäddan";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B5";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Ashia",					// First Name
+						"Bäddan",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 14:
-			autoList->nameFirst = "Qi";
-			autoList->nameLast = "Wahponjea";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B6";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Qi",						// First Name
+						"Wahponjea",				// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 15:
-			autoList->nameFirst = "Hali";
-			autoList->nameLast = "Eamon";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B7";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Hali",						// First Name
+						"Eamon",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 16:
-			autoList->nameFirst = "Tai Yang";
-			autoList->nameLast = "Taipa";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B8";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Tai Yang",					// First Name
+						"Taipa",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 17:
-			autoList->nameFirst = "Achava";
-			autoList->nameLast = "Nili";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "B9";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Achava",					// First Name
+						"Nili",						// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 18:
-			autoList->nameFirst = "John";
-			autoList->nameLast = "Hancock";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "C1";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"John",						// First Name
+						"Hancock",					// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 19:
-			// Deal with it
-			autoList->nameFirst = "Theodore";
-			autoList->nameLast = "Roosevelt";
-			autoList->passengerID = Autofill_List_Numbers(0);
-			autoList->reservationNum = Autofill_List_Numbers(1);
-			autoList->telephoneNum = Autofill_List_Numbers(2);
-			autoList->seatNum = "C2";
-			autoList->mealType = Autofill_List_MealChoice();
+			CreateNewNode(head,						// primary list
+						"Theodore",					// First Name
+						"Roosevelt",				// Last Name
+						Autofill_List_Numbers(0),	// Passenger ID
+						Autofill_List_Numbers(1),	// Reservation Num
+						Autofill_List_Numbers(2),	// Telephone Num
+						GetSeatAvailable(),			// Seat Num
+						Autofill_List_MealChoice());// Preferred Meal
 			break;
-		default:
-			autoList->nameFirst = "Jenny";
-			autoList->nameLast = "Tommy Tutone";
-			autoList->passengerID = -919;
-			autoList->reservationNum = -919;
-			autoList->telephoneNum = 8675309; // https://youtu.be/8ou6DDG5e7I
-			autoList->seatNum = "ZZ";
-			autoList->mealType = "MRE"; // Military acronym for 'Meal Ready to Eat', its horrible.
+		default: // Easter Egg!
+			CreateNewNode(head,						// primary list
+						"Jenny",					// First Name
+						"Tommy Tutone",				// Last Name
+						-919,						// Passenger ID [919 area code ;)]
+						-919,						// Reservation Num
+						8675309,					// Telephone Num [reference: https://youtu.be/8ou6DDG5e7I ]
+						919,						// Seat Num
+						"MRE");						// Preferred Meal -  Military acronym for 'Meal Ready to Eat', its horrible.
 			break;
 		} // switch
-
-		// Move to the next node
-		autoList->next = new Node;
 	} // for
-
-	// Append the list to the primary link list
-	*head = autoList;
 } // Autofill_List()
+
 
 
 /*
