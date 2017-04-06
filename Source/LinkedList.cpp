@@ -13,6 +13,7 @@
 
 
 
+// Print Passenger List
 // ===============================================
 // Documentation:
 //	This function will output all of the information within the link list.
@@ -48,6 +49,7 @@ inline void Print_Passenger_List(Node* head)
 
 
 
+// Update Passenger Information
 // ===============================================
 // Documentation:
 //	Update the passenger's information respectively
@@ -136,6 +138,7 @@ inline bool Update_Passenger_Information(Node** head, int passengerID, int updat
 
 
 
+// Insert New Node Entry
 // ===============================================
 // Documentation:
 //	This function will forward the new node (or data) onto
@@ -161,6 +164,7 @@ inline void InsertNode(Node** head, Node* newEntry)
 
 
 
+// Create a New Node
 // ===============================================
 // Documentation:
 //	Generate a new entry to be imported into the primary list.
@@ -208,6 +212,7 @@ inline void CreateNewNode(Node** head, std::string nameFirst, std::string nameLa
 
 
 
+// Autofill List [Numbers - Dependency]
 // ===============================================
 // Documentation:
 //	This function will provide an easier way to manage
@@ -256,6 +261,7 @@ inline int Autofill_List_Numbers(int key)
 
 
 
+  // Autofill List [Meal Choice - Dependency]
 // ===============================================
 // Documentation:
 //	This function will provide a randomized choice of
@@ -303,6 +309,7 @@ inline std::string Autofill_List_MealChoice()
 
 
 
+// Find Available Seat
 // ===============================================
 // Documentation:
 //	This function will merely provide the next available seat.
@@ -318,7 +325,7 @@ inline int GetSeatAvailable()
 } // GetSeatAvailable()
 
 
-
+// Autofill List
 // ===============================================
 // Documentation:
 //	This function will automatically populate and generate a reasonably
