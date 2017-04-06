@@ -636,16 +636,20 @@ inline int UserInput_Number(bool UsePrompt = true)
 //	bool
 //		Returns a bool captured from STDIN.
 // ===============================================
-inline int UserInput_Bool(bool UsePrompt = true)
+inline bool UserInput_Bool(bool UsePrompt = true)
 {
-	bool userInput;				// Use this to capture the STDIN
+	char userInput;				// Use this to capture the STDIN
 
 	if (UsePrompt)
 		std::cout << ">>>>> ";	// The python'ish prompt
 
 	std::cin >> userInput;		// Capture the input
 
-	return userInput;			// Return the value.
+
+	if (tolower(UsePrompt) == 'y') // See if 'Yes' was selected
+		return true;		// Yes
+	else
+		return false;		// No
 } // UserInput_Bool()
 
 
