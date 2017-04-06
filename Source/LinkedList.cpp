@@ -261,7 +261,7 @@ inline int Autofill_List_Numbers(int key)
 
 
 
-  // Autofill List [Meal Choice - Dependency]
+// Autofill List [Meal Choice - Dependency]
 // ===============================================
 // Documentation:
 //	This function will provide a randomized choice of
@@ -323,6 +323,7 @@ inline int GetSeatAvailable()
 
 	return rand() % 100 + 1;
 } // GetSeatAvailable()
+
 
 
 // Autofill List
