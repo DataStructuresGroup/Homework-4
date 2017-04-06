@@ -792,6 +792,40 @@ inline void ManualCustomerAdd(Node** head)
 
 
 
+// Search Node Entries
+// ===============================================
+// Documentation:
+//	This is a very important function that will promptly scan the entire list for a specific key.
+// -----------------------------------------------
+// Parameters:
+//	head [Node* - readonly]
+//		Use for scanning if necessary; primary list
+//	cur [Node** - Alterable]
+//		Used for processing; holds the search point
+//	pre [Node** - Alterable]
+//		Used for processing before 'cur'; holds the node right before 'cur' pointer.
+//	searchMode [int]
+//		Determines how the lists will be scanned within this function.
+//		0 = Find a specific 'string' within a Node.
+//		1 = Find a specific 'int' within a Node.
+//	searchKeyString [string]
+//		A specific key in a string form used for scanning each node.
+//	searchKeyInt [int]
+//		A specific key in an int form used for scanning each node.
+// -----------------------------------------------
+// Output:
+//	bool
+//		Reports the status if the operation was successful or failed.
+//		true = an error occured
+//		false = operation successful
+// ===============================================
+inline bool Search(Node* head, Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
+{
+
+} // Search()
+
+
+
 // BK, please fix this code to work with our model!
 //  Please talk to Kyle for more information.
 //  Failure will result in a default action.
