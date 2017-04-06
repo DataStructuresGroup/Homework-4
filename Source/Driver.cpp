@@ -27,11 +27,11 @@
 
 
 #pragma region Prototypes
-void MainMenu();				// Displays a list of functionalities available to the end-user.
-void Instructions();			// Provides instructions to the end-user.
-char PromptUser_MainMenu();		// Fetch the STDIN from the end-user [keyboard or emulated keystrokes only]
-void EvaluateAndRun(char, Node**);// Inspect the user's input and try to run the request
-void ClearBuffer();				// Thrash the terminal buffer.
+void MainMenu();					// Displays a list of functionalities available to the end-user.
+void Instructions();				// Provides instructions to the end-user.
+char PromptUser_MainMenu();			// Fetch the STDIN from the end-user [keyboard or emulated keystrokes only]
+void EvaluateAndRun(char, Node**);	// Inspect the user's input and try to run the request
+void ClearBuffer();					// Thrash the terminal buffer.
 #pragma endregion
 
 
@@ -51,10 +51,11 @@ int main()
 	Instructions();				// Provide instructions to the user via terminal buffer.
 	do // Main program
 	{
-		MainMenu();
-		userInput = PromptUser_MainMenu();
-		EvaluateAndRun(userInput, &head);
-	} while (tolower(userInput) != 'x');
+		MainMenu();							// Provide the main menu to the end-user
+		userInput = PromptUser_MainMenu();	// Capture the user's input
+		std::cout << std::endl;				// Add a new line for readability
+		EvaluateAndRun(userInput, &head);	// Try to execute the request
+	} while (tolower(userInput) != 'x');	// Exit?
 
 	return 0;					// Terminate
 } // main()
@@ -91,10 +92,15 @@ void Instructions()
 // ===============================================
 void MainMenu()
 {
+	// The border for the main menu screen
+	std::cout << "Select an option:" << std::endl
+		<< "====================" << std::endl;
+
+	// Main menu options
 	std::cout << "[1] - Automatically Generate a Customer List" << std::endl
 		<< "[2] - Manually add a new customer" << std::endl
 		<< "[3] - Print all customer information" << std::endl
-		<< "[X] - Exit" << std::endl;
+		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
 
@@ -130,6 +136,8 @@ void EvaluateAndRun(char STDIN, Node** head)
 		std::cout << "Incorrect option!" << std::endl << std::endl;
 		break;
 	} // switch
+
+	ClearBuffer();	// Provide spacing after evaluation
 } // EvaluateAndRun()
 
 
@@ -152,3 +160,19 @@ char PromptUser_MainMenu()
 
 	return inputCapture;			// Return the value.
 } // PromptUser_MainMenu()
+
+
+
+// Clear Buffer
+// ===============================================
+// This function, despite minimal, will try to make the buffer easier to read for the end user.
+// ===============================================
+void ClearBuffer()
+{
+	std::cout << std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl;
+} // ClearBuffer()
