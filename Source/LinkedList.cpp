@@ -667,11 +667,11 @@ inline std::string ManualCustomerAdd_MealChoice()
 
 	// Provide the inflight meal list:
 	std::cout << "Select a number: " << std::endl
-		<< "1) Monkey Brains" << std::endl
-		<< "2) Tuna Eyeballs" << std::endl
-		<< "3) Raw Octopus" << std::endl
-		<< "4) Fish" << std::endl
-		<< "5) Expired Peanuts" << std::endl << std::endl;
+		<< " 1) Monkey Brains" << std::endl
+		<< " 2) Tuna Eyeballs" << std::endl
+		<< " 3) Raw Octopus" << std::endl
+		<< " 4) Fish" << std::endl
+		<< " 5) Expired Peanuts" << std::endl << std::endl;
 
 	// Get the customer's request
 	userChoice = UserInput_Number();
@@ -683,22 +683,22 @@ inline std::string ManualCustomerAdd_MealChoice()
 		// Process the user's request
 		switch (userChoice)
 		{
-		case '1':					// Monkey Brains
+		case 1:					// Monkey Brains
 			return "Monkey Brains";
 			break;
-		case '2':					// Tuna Eyeballs
+		case 2:					// Tuna Eyeballs
 			return "Tuna Eyeballs";
 			break;
-		case '3':					// Raw Octopus
+		case 3:					// Raw Octopus
 			return "Raw Octopus";
 			break;
-		case '4':					// Fish
+		case 4:					// Fish
 			return "Fish";
 			break;
-		case '5':					// Expired Peanuts
+		case 5:					// Expired Peanuts
 			return "Expired Peanuts";
 			break;
-		default:					// Bad Input
+		default:				// Bad Input
 			std::cout << "Incorrect option!" << std::endl;
 			badInputCatch = true;
 			break;
@@ -729,7 +729,7 @@ inline void ManualCustomerAdd(Node** head)
 	int stdinSeat;
 	// ----
 	// working variables
-	bool cacheNum;
+	bool cacheBit;
 	// ------------------
 
 
@@ -758,9 +758,12 @@ inline void ManualCustomerAdd(Node** head)
 	stdinMealChoice = ManualCustomerAdd_MealChoice();
 	
 	// [optional] Seat
-	std::cout << "Preferred seating arrangement? [Y] = Yes | [N] = No";
+	std::cout << "Preferred seating arrangement? [Y] = Yes | [N] = No" << std::endl;
 
-	if (UserInput_Bool)
+	// Capture user input for seating preference
+	cacheBit = UserInput_Bool();
+
+	if (cacheBit)
 	{					// The customer has seating arrangements
 		std::cout << "Preferred seating: ";
 		stdinSeat = UserInput_Number(false);

@@ -124,6 +124,7 @@ void EvaluateAndRun(char STDIN, Node** head)
 		Autofill_List(head);
 		break;
 	case '2':	// Manually input customer
+		ManualCustomerAdd(head);
 		break;
 	case '3':	// Print all customers [primary pointer]
 		Print_Passenger_List(*head);
