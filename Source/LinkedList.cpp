@@ -696,7 +696,7 @@ inline std::string ManualCustomerAdd_MealChoice()
 		case 3:					// Raw Octopus
 			return "Raw Octopus";
 			break;
-		case 4:					// Fish
+		case 4:					// Fish [Seriously, don't go for the fish! https://youtu.be/rQbj9uvYL8I ]
 			return "Fish";
 			break;
 		case 5:					// Expired Peanuts
