@@ -1204,9 +1204,10 @@ inline void UpdatePassengerInformation(Node** head)
 			badInput = false;
 			break;
 		default:			// Bad input
+			std::cout << "Incorrect option!" << std::endl;
 			badInput = true;
 			break;
 		}
-	} while (!badInput);
+	} while (badInput);
 } // UpdatePassengerInformation()
 #endif // !__LinkList__Implementation__
