@@ -100,6 +100,7 @@ void MainMenu()
 	std::cout << "[1] - Automatically Generate a Customer List" << std::endl
 		<< "[2] - Manually add a new customer" << std::endl
 		<< "[3] - Print all customer information" << std::endl
+		<< "[4] - Search for a passenger" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -128,6 +129,9 @@ void EvaluateAndRun(char STDIN, Node** head)
 		break;
 	case '3':	// Print all customers [primary pointer]
 		Print_Passenger_List(*head);
+		break;
+	case '4':
+		FindPrintPassenger(*head);
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;

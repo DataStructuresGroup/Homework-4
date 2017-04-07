@@ -859,11 +859,15 @@ inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKey
 		switch (searchMode)
 		{
 		case 0:		// Scan last name
-			if ((*cur)->nameLast == searchKeyString)
+			if (searchKeyString.compare((*cur)->nameLast) == 0)
+									// Equality between the two strings
+									// [ http://www.cplusplus.com/reference/string/string/compare/ ]
 				return true;
 			break;
 		case 1:		// Scan first name
-			if ((*cur)->nameFirst == searchKeyString)
+			if (searchKeyString.compare((*cur)->nameFirst) == 0)
+									// Equality between the two strings
+									// [ http://www.cplusplus.com/reference/string/string/compare/ ]
 				return true;
 			break;
 		case 2:		// Scan passenger ID
@@ -892,6 +896,140 @@ inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKey
 	// Unable to find a node with that specific key and data.
 	return false;
 } // Search()
+
+
+
+// Find and Print Passenger
+// ===============================================
+// Documentation:
+//  This function will allow the end-user to search for a specific passenger
+//  and output the passenger's information on the terminal.
+// 
+//  This function will depend on several functions:
+//	 Search() && Print_Passenger_List() && UserInput_String()
+//   UserInput_Number()
+// ===============================================
+inline void FindPrintPassenger(Node* head)
+{
+	// Present the user with a menu in which to search by
+	std::cout << "Search for Passenger:" << std::endl
+		<< "-----------------------" << std::endl
+		<< " 1) Last name" << std::endl
+		<< " 2) Telephone" << std::endl
+		<< " 3) Reservation ID" << std::endl
+		<< " 4) Passenger ID" << std::endl
+		<< " 5) Seat Number" << std::endl
+		<< " 0) Exit" << std::endl
+		<< std::endl;
+	
+	bool badInput;	// Make sure that the input provided from the end-user
+					// is valid; run-away protection.
+	std::string captureString;
+	int captureInt;
+
+	Node* nodeIndex = head;
+	Node* nullityNode = NULL;
+
+	do {
+		// Retrieve the end-user's STDIN and process the request
+		switch (UserInput_Number())
+		{
+		case 1:						// Last name
+
+			// Capture the last name from the end-user
+			std::cout << "Enter passenger's last name: ";
+			captureString = UserInput_String(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				0,					// Search by last name
+				captureString))		// String to search
+				Print_Passenger_List(nodeIndex); // Output the results
+			else
+				std::cout << "Unable to find passenger: " << captureString
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 2:						// Telephone
+			std::cout << "Enter passenger's telephone number: ";
+			captureInt >> UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				4,					// Search by telephone number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				Print_Passenger_List(nodeIndex); // Output the results
+			else
+				std::cout << "Unable to find passenger with the telephone number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 3:						// Reservation ID
+			std::cout << "Enter passenger's Reservation number: ";
+			captureInt >> UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				3,					// Search by reservation number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				Print_Passenger_List(nodeIndex); // Output the results
+			else
+				std::cout << "Unable to find passenger with the reservation number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 4:						// Passenger ID
+			std::cout << "Enter passenger's Passenger number: ";
+			captureInt >> UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				2,					// Search by passenger number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				Print_Passenger_List(nodeIndex); // Output the results
+			else
+				std::cout << "Unable to find passenger with the passenger number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 5:						// Seat Number [Occupied]
+			std::cout << "Enter passenger's Seat number: ";
+			captureInt >> UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				5,					// Search by seat number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				Print_Passenger_List(nodeIndex); // Output the results
+			else
+				std::cout << "Unable to a find a passenger in seat number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 0:						// Exit; silently leave this function
+			badInput = false;
+			break;
+		default:
+			std::cout << "Incorrect option!" << std::endl;
+			badInput = true;
+			break;
+		} // switch
+	} while (badInput);
+} // FindPrintPassenger()
 
 
 
