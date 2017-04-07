@@ -1053,6 +1053,18 @@ inline void FindPrintPassenger(Node* head)
 //  Regards,
 //  -Nicholas
 /*
+// Cancel Reservation
+// =====================================================================================================
+// Documentation:
+// This code allows the user to search for a passenger in the list then remove them from said list.
+// Logic:
+// This code relies on two functions.
+// bool search_node(int key)
+// this code searches for the passenger in the linked list
+// bool delete_node(int key)
+// this code uses the earlier search function to delete the passenger. 
+// It also contains an error message should the passenger put in is not on the list.
+// ========================================================================================================
 bool search_node(int key)
 
 { 
