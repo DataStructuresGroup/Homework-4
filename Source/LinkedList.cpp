@@ -1047,66 +1047,31 @@ inline void FindPrintPassenger(Node* head)
 
 
 
-// BK, please fix this code to work with our model!
-//  Please talk to Kyle for more information.
-//  Failure will result in a default action.
-//  Regards,
-//  -Nicholas
-/*
+
 // Cancel Reservation
 // =====================================================================================================
 // Documentation:
 // This code allows the user to search for a passenger in the list then remove them from said list.
 // Logic:
-// This code relies on two functions.
-// bool search_node(int key)
-// this code searches for the passenger in the linked list
-// bool delete_node(int key)
-// this code uses the earlier search function to delete the passenger. 
-// It also contains an error message should the passenger put in is not on the list.
+// This code is a modified version of the Search function that only searches for passenger IDs.
+// When it finds the ID it will delete the Node the ID is connected to.
 // ========================================================================================================
-bool search_node(int key)
 
-{ 
-	node*temp=head; // sets up the temp and cur functions
-	pre = NULL;
 
-	cur = temp;
+bool delete_node(Node** head, Node** pre, int passengerIDKey)
+{       
+	if (*head == NULL){   //makes sure there is something in head
+                return false;
 
-	while(cur != NULL) // makes sure cur is not NULLL
-	{
-
-		if (cur-> key ==key)  // checks to see if cur is key
-		 {
-		 	return true;
-		}
-		else
-		{
-			pre = cur;   // these next two lines move to the next section in case the first cur was not the key
-			cur = cur->next;
-
+	}
+        while(*head != NULL){
+                if((*head)->passengerID = passengerIDKey){ // searches the passenger IDs
+                        (*pre)->next = (*head)->next; // moves to the next ID
+                        delete head; // deletes the node if the node is the node that needs to be deleted
+                        return true;
 		}
 	}
-	return false;
+
+                return false; // If the ID typed in does not exist
 }
-
-
-bool delete_node(int key)
-{
-	cout << "Enter what you want to delete: "; // cout statment so person can type in what they are deleteing
-	cin >> key;
-
-	if (search_node(key)) // runs the search function to see if the object types is in the directory
-	{
- 		pre->next = cur->next; // deletes the section then moves to the next one
-		 delete cur;
- 		return true;
-	}
-	else
-	{
-		cout << "ERRROR this is not in the list!" << endl; // error statement in case the person types in the wrong thing
-		return false;
-	}
-}
-*/
 #endif // !__LinkList__Implementation__
