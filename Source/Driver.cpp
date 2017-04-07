@@ -101,6 +101,7 @@ void MainMenu()
 		<< "[2] - Manually add a new customer" << std::endl
 		<< "[3] - Print all customer information" << std::endl
 		<< "[4] - Search for a passenger" << std::endl
+		<< "[5] - Update passenger information" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -132,6 +133,9 @@ void EvaluateAndRun(char STDIN, Node** head)
 		break;
 	case '4':	// Search for passenger
 		FindPrintPassenger(*head);
+		break;
+	case '5':
+		UpdatePassengerInformation(head);
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
