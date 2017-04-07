@@ -51,99 +51,6 @@ inline void Print_Passenger_List(Node* head)
 
 
 
-// THIS FUNCTION IS DEPRECATED!
-// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// Update Passenger Information
-// ===============================================
-// Documentation:
-//	Update the passenger's information respectively
-//	This will only allow one change per-invoktion.  If
-//	 the passenger needs two or more fields to be updated,
-//	 then this function MUST be invoked two or more times.
-// -----------------------------------------------
-// Parameters:
-//	head [Node*]
-//		This will take any valid link list.
-//	passengerID [int]
-//		Select the passenger to update
-//	updateKey [int]
-//		Updates the requested field.  (ONLY ONE UPDATE PER-CALL!)
-//		<WARNING>
-//		Please read the list to update the correct field!
-//		Use the following key to update:
-//			0 = Reservation
-//			1 = Phone number
-//			2 = Flight Seat
-//			3 = InFlight Meal
-//	reservation [int]
-//		[DEFAULT = -255]
-//		When requested, update the reservation.
-//	contactPhone [int]
-//		[DEFAULT = -255]
-//		When requested, update the telephone number.
-//	seatNumber [string]
-//		[DEFAULT = NA]
-//		When requested, update the flight seat.
-//	mealType [string]
-//		[DEFAULT = NA]
-//		When requested, update the inflight meal.
-//		Fun Fact: Skip the fish!
-//			Please consider watching Airplane!
-//			https://youtu.be/rQbj9uvYL8I
-// -----------------------------------------------
-// Output:
-//	False:
-//		Success, no failures.
-//	True:
-//		Failure; possibly the passenger does not exist.
-// ===============================================
-inline bool Update_Passenger_Information(Node** head, int passengerID, int updateKey, int reservation = -255, int contactPhone = -255, int seatNumber = -255, std::string mealType = "NA")
-{
-	// Check to see if at least node exists, if not - leave this function.
-	if (*head == NULL)
-		return false;
-
-	// Mirror list for alterations
-	Node* mirrorList = *head;
-
-	// Find the passenger....
-	while (mirrorList->passengerID != passengerID && mirrorList->next != NULL)
-		mirrorList->next;
-
-	// Make sure that we actually found the passenger
-	if (mirrorList->passengerID != passengerID || mirrorList == NULL)
-		// Failed to find the passenger, terminate
-		return 0;
-
-	// Evaluate what needs to be updated and alter as needed
-	switch (updateKey)
-	{
-		case 0:
-			// Reservation
-			mirrorList->reservationNum = reservation;
-			break;
-		case 1:
-			// Phone number
-			mirrorList->telephoneNum = contactPhone;
-			break;
-		case 2:
-			// Flight Seat
-			mirrorList->seatNum = seatNumber;
-			break;
-		case 3:
-			// InFlight Meal
-			mirrorList->mealType = mealType;
-			break;
-	} // switch
-
-	// Success!
-	return true;
-} // Update_Passenger_Information()
-
-
-
 // Insert New Node Entry
 // ===============================================
 // Documentation:
@@ -1098,7 +1005,7 @@ inline bool delete_node(Node** head, Node** pre, int passengerIDKey)
 //
 //  This function depends on the Search() and the input (number\int) function.
 // ===============================================
-inline void UpdatePassengerInformation(Node* head)
+inline void UpdatePassengerInformation(Node** head)
 {
 	// Present the user with a menu in which to search by
 	std::cout << "Search for Passenger:" << std::endl
@@ -1116,8 +1023,8 @@ inline void UpdatePassengerInformation(Node* head)
 	std::string captureString;
 	int captureInt;
 
-	Node* nodeIndex = head;
-	Node* nullityNode = NULL;
+	Node* nullityNode = NULL;	// Create a list placeholder; we will not need it in this function, but
+								// it is required when calling the Search() function.
 
 	bool targetFound = false;	// We will use this to determine if the passenger was
 								// detect during the search.  This will become true
@@ -1134,7 +1041,7 @@ inline void UpdatePassengerInformation(Node* head)
 			captureString = UserInput_String(false);
 			std::cout << std::endl;
 
-			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+			if (Search(head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				0,					// Search by last name
 				captureString))		// String to search
@@ -1150,7 +1057,7 @@ inline void UpdatePassengerInformation(Node* head)
 			captureInt >> UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+			if (Search(head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				4,					// Search by telephone number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1167,7 +1074,7 @@ inline void UpdatePassengerInformation(Node* head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+			if (Search(head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				3,					// Search by reservation number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1184,7 +1091,7 @@ inline void UpdatePassengerInformation(Node* head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+			if (Search(head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				2,					// Search by passenger number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1201,7 +1108,7 @@ inline void UpdatePassengerInformation(Node* head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+			if (Search(head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				5,					// Search by seat number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1259,37 +1166,37 @@ inline void UpdatePassengerInformation(Node* head)
 		{
 		case 1:				// Update telephone
 			// Let the user know of the current value
-			std::cout << "Current telephone number: " << nodeIndex->telephoneNum << std::endl;
+			std::cout << "Current telephone number: " << (*head)->telephoneNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			nodeIndex->telephoneNum = UserInput_Number(false);
+			(*head)->telephoneNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 2:				// Update reservation ID
 			// Let the user know of the current value
-			std::cout << "Current reservation number: " << nodeIndex->reservationNum << std::endl;
+			std::cout << "Current reservation number: " << (*head)->reservationNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			nodeIndex->reservationNum = UserInput_Number(false);
+			(*head)->reservationNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 3:				// Update passenger ID
 			// Let the user know of the current value
-			std::cout << "Current passenger number: " << nodeIndex->passengerID << std::endl;
+			std::cout << "Current passenger number: " << (*head)->passengerID << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			nodeIndex->passengerID = UserInput_Number(false);
+			(*head)->passengerID = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 4:				// Seat Number
 			// Let the user know of the current value
-			std::cout << "Current seat number: " << nodeIndex->seatNum << std::endl;
+			std::cout << "Current seat number: " << (*head)->seatNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			nodeIndex->seatNum = UserInput_Number(false);
+			(*head)->seatNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
