@@ -795,7 +795,31 @@ inline void ManualCustomerAdd(Node** head)
 // Search Node Entries
 // ===============================================
 // Documentation:
-//	This is a very important function that will promptly scan the entire list for a specific key.
+//	This is a very important function that will promptly scan the entire list
+//	 for a specific key.
+//  This function will scan all nodes available, but it will stop at the
+//	 first available hit from the scan.  With that, once the scan finds the
+//	 key in one of the nodes, this function will NOT continue scanning afterwards.
+// -----------------------------------------------
+// Methodology:
+//	Using both Node types, cur and pre, we will perform the scan as follows:
+// | ====== |     | ====== |     | ====== |     | ====== |     | ====== |
+// | NODE 1 |     | NODE 2 |     | NODE 3 |     | NODE N |     | NODE N+1
+// | ~~~~~~ |     | ~~~~~~ |     | ~~~~~~ |     | ~~~~~~ |     | ~~~~~~ |
+// |  DATA  |     |  DATA  |     |  DATA  |     |  DATA  |     |  DATA  |
+// | ------ |     | ------ |     | ------ |     | ------ |     | ------ |
+// |  NEXT  ----> |  NEXT  ----> |  NEXT  ----> |  NEXT  ----> |  NEXT  ---->
+// | ====== |     | ====== |     | ====== |     | ====== |     | ====== |
+//    ---            pre             cur             <NOT YET SCANNED>
+// Simple Logic:
+// Fist scan:
+// cur = node 1 || pre = NULL
+// Second scan:
+// cur = node 2 || pre = node 1
+// Third scan:
+// cur = node 3 || pre = node 2
+// N scan: <general form>
+// cur = node N || pre = node N-1
 // -----------------------------------------------
 // Parameters:
 //	cur [Node** - Alterable]
@@ -804,8 +828,12 @@ inline void ManualCustomerAdd(Node** head)
 //		Used for processing before 'cur'; holds the node right before 'cur' pointer.
 //	searchMode [int]
 //		Determines how the lists will be scanned within this function.
-//		0 = Find a specific 'string' within a Node.
-//		1 = Find a specific 'int' within a Node.
+//		0 = Scan Last name [string]
+//		1 = Scan first name [string]
+//		2 = Scan passenger ID [int]
+//		3 = Scan reservation number [int]
+//		4 = Scan telephone number [int]
+//		5 = Scan seat number [int]
 //	searchKeyString [string]
 //		A specific key in a string form used for scanning each node.
 //	searchKeyInt [int]
@@ -814,12 +842,55 @@ inline void ManualCustomerAdd(Node** head)
 // Output:
 //	bool
 //		Reports the status if the operation was successful or failed.
-//		true = an error occured
+//		true = an error occurred
 //		false = operation successful
 // ===============================================
 inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
 {
+	// If the cur pointer points to NULL, then there is nothing to scan.
+	if (*cur == NULL)
+		return false;
 
+	// Scan the node
+	while (*cur == NULL)
+	{
+		// Besides using a nesting conditional statement, we are going to use
+		//  a switch statement for simplicity.
+		switch (searchMode)
+		{
+		case 0:		// Scan last name
+			if ((*cur)->nameLast == searchKeyString)
+				return true;
+			break;
+		case 1:		// Scan first name
+			if ((*cur)->nameFirst == searchKeyString)
+				return true;
+			break;
+		case 2:		// Scan passenger ID
+			if ((*cur)->passengerID == searchKeyInt)
+				return true;
+			break;
+		case 3:		// Scan reservation number
+			if ((*cur)->reservationNum == searchKeyInt)
+				return true;
+			break;
+		case 4:		// Scan telephone number
+			if ((*cur)->telephoneNum == searchKeyInt)
+				return true;
+			break;
+		case 5:		// Scan seat number
+			if ((*cur)->seatNum == searchKeyInt)
+				return true;
+			break;
+		} // switch
+		
+		// Update the node positions
+		*pre = (*cur);				// Update pre to cur's current position.
+		*cur = (*cur)->next;		// Shift cur to next position.
+	} // while
+
+	// Unable to find a node with that specific key and data.
+	return false;
 } // Search()
 
 
