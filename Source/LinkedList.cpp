@@ -45,7 +45,7 @@ inline void Print_Passenger_List(Node* head)
 			<< "Seat on the plane: " << head->seatNum << std::endl
 			<< "Preferred Meal Plan: " << head->mealType << std::endl;
 
-		head = head->next;
+		head = head->next;	// Move to the next node
 	} // while
 } // Print_Passenger_List()
 
@@ -944,7 +944,10 @@ inline void FindPrintPassenger(Node* head)
 				&nullityNode,		// Required for the function, but not used.
 				0,					// Search by last name
 				captureString))		// String to search
-				Print_Passenger_List(nodeIndex); // Output the results
+			{
+				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
+				Print_Passenger_List(nodeIndex);// Output the results
+			} // if
 			else
 				std::cout << "Unable to find passenger: " << captureString
 				<< std::endl;
@@ -961,7 +964,10 @@ inline void FindPrintPassenger(Node* head)
 				4,					// Search by telephone number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-				Print_Passenger_List(nodeIndex); // Output the results
+			{
+				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
+				Print_Passenger_List(nodeIndex);// Output the results
+			} // if
 			else
 				std::cout << "Unable to find passenger with the telephone number: " << captureInt
 				<< std::endl;
@@ -978,7 +984,10 @@ inline void FindPrintPassenger(Node* head)
 				3,					// Search by reservation number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-				Print_Passenger_List(nodeIndex); // Output the results
+			{
+				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
+				Print_Passenger_List(nodeIndex);// Output the results
+			} // if
 			else
 				std::cout << "Unable to find passenger with the reservation number: " << captureInt
 				<< std::endl;
@@ -995,7 +1004,10 @@ inline void FindPrintPassenger(Node* head)
 				2,					// Search by passenger number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-				Print_Passenger_List(nodeIndex); // Output the results
+			{
+				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
+				Print_Passenger_List(nodeIndex);// Output the results
+			} // if
 			else
 				std::cout << "Unable to find passenger with the passenger number: " << captureInt
 				<< std::endl;
@@ -1012,7 +1024,10 @@ inline void FindPrintPassenger(Node* head)
 				5,					// Search by seat number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-				Print_Passenger_List(nodeIndex); // Output the results
+			{
+				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
+				Print_Passenger_List(nodeIndex);// Output the results
+			} // if
 			else
 				std::cout << "Unable to a find a passenger in seat number: " << captureInt
 				<< std::endl;
