@@ -1058,7 +1058,7 @@ inline void FindPrintPassenger(Node* head)
 // ========================================================================================================
 
 
-bool delete_node(Node** head, Node** pre, int passengerIDKey)
+inline bool delete_node(Node** head, Node** pre, int passengerIDKey)
 {       
 	if (*head == NULL){   //makes sure there is something in head
                 return false;
