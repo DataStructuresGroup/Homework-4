@@ -51,6 +51,10 @@ inline void Print_Passenger_List(Node* head)
 
 
 
+// THIS FUNCTION IS DEPRECATED!
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // Update Passenger Information
 // ===============================================
 // Documentation:
@@ -1074,4 +1078,228 @@ inline bool delete_node(Node** head, Node** pre, int passengerIDKey)
 
                 return false; // If the ID typed in does not exist
 }
+
+
+
+// Update Passenger Information
+// ===============================================
+// Documentation:
+//	This function will provide a front-end to the end-user to identify what
+//	passenger's information is to be updated.
+//  This function will first ask the end-user to input the current information
+//   about the passenger, then with this information - we scan the list for the node.
+//   IIF if the node exists with the passenger's information, then will provide the
+//   end-user with update options for that passenger.
+//
+// NOTES: This function was coded badly and this should be better optimized, but
+//			as we work at a coding sweat shop, there is no better way!
+//			The pay grade at this code sweat shop only offers 27 cents per hour :(
+//			Please help us!
+//
+//  This function depends on the Search() and the input (number\int) function.
+// ===============================================
+inline void UpdatePassengerInformation(Node* head)
+{
+	// Present the user with a menu in which to search by
+	std::cout << "Search for Passenger:" << std::endl
+		<< "-----------------------" << std::endl
+		<< " 1) Last name" << std::endl
+		<< " 2) Telephone" << std::endl
+		<< " 3) Reservation number" << std::endl
+		<< " 4) Passenger number" << std::endl
+		<< " 5) Seat Number" << std::endl
+		<< " 0) Exit" << std::endl
+		<< std::endl;
+
+	bool badInput;	// Make sure that the input provided from the end-user
+					// is valid; run-away protection.
+	std::string captureString;
+	int captureInt;
+
+	Node* nodeIndex = head;
+	Node* nullityNode = NULL;
+
+	bool targetFound = false;	// We will use this to determine if the passenger was
+								// detect during the search.  This will become true
+								// IIF the passenger was found, otherwise - its false.
+								// IIF this is true, then we will allow the user to update
+								//  that node index.
+	do {
+		// Capture the user's request and process the request
+		switch (UserInput_Number())
+		{
+		case 1:						// Last name
+									// Capture the last name from the end-user
+			std::cout << "Enter passenger's last name: ";
+			captureString = UserInput_String(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				0,					// Search by last name
+				captureString))		// String to search
+				targetFound = true;
+			else
+				std::cout << "Unable to find passenger: " << captureString
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 2:						// Telephone
+			std::cout << "Enter passenger's telephone number: ";
+			captureInt >> UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				4,					// Search by telephone number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				targetFound = true;
+			else
+				std::cout << "Unable to find passenger with the telephone number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 3:						// Reservation ID
+			std::cout << "Enter passenger's Reservation number: ";
+			captureInt = UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				3,					// Search by reservation number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				targetFound = true;
+			else
+				std::cout << "Unable to find passenger with the reservation number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 4:						// Passenger ID
+			std::cout << "Enter passenger's Passenger number: ";
+			captureInt = UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				2,					// Search by passenger number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				targetFound = true;
+			else
+				std::cout << "Unable to find passenger with the passenger number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 5:						// Seat Number [Occupied]
+			std::cout << "Enter passenger's Seat number: ";
+			captureInt = UserInput_Number(false);
+			std::cout << std::endl;
+
+			if (Search(&nodeIndex,	// Our list to be scanned and processed.
+				&nullityNode,		// Required for the function, but not used.
+				5,					// Search by seat number
+				"NA",				// Default to 'NA' due to standard; unused.
+				captureInt))		// integer to search
+				targetFound = true;
+			else
+				std::cout << "Unable to a find a passenger in seat number: " << captureInt
+				<< std::endl;
+
+			badInput = false;
+			break;
+		case 0:						// Exit; silently leave this function
+			badInput = false;
+			break;
+		default:					// Bad input
+			std::cout << "Incorrect option!" << std::endl;
+			badInput = true;
+			break;
+		} // switch
+	} while (badInput);
+
+	// If the passenger was not found, leave this function.
+	if (!targetFound)
+	{
+		system("PAUSE");		// Allow the end-user to view the message that the pasenger
+								// was not found during the scan.
+								// WARNING: __WINDOWS_ONLY__
+								// ANYONE USING ADA OR LINUX, PLEASE COMMENT THIS STATEMENT!
+								// With this statement, I am using an extCMD in Windows
+								// via the Command Shell.
+		return;
+	}
+	
+
+	// =========================================================================
+	// -------------------------------------------------------------------------
+	// =========================================================================
+	// TARGET FOUND
+
+
+	// What does the end-user want to update?
+	std::cout << "Information to Update:" << std::endl
+		<< "-----------------------" << std::endl
+		<< " 1) Telephone" << std::endl
+		<< " 2) Reservation number" << std::endl
+		<< " 3) Passenger number" << std::endl
+		<< " 4) Seat Number" << std::endl
+		<< " 0) Exit" << std::endl
+		<< std::endl;
+
+	// Get the user's input and evaluate it
+	do
+	{
+		switch (UserInput_Number())
+		{
+		case 1:				// Update telephone
+			// Let the user know of the current value
+			std::cout << "Current telephone number: " << nodeIndex->telephoneNum << std::endl;
+			// Allow the user to update that specific field:
+			std::cout << "Enter a new value: ";
+			nodeIndex->telephoneNum = UserInput_Number(false);
+
+			badInput = false;
+			break;
+		case 2:				// Update reservation ID
+			// Let the user know of the current value
+			std::cout << "Current reservation number: " << nodeIndex->reservationNum << std::endl;
+			// Allow the user to update that specific field:
+			std::cout << "Enter a new value: ";
+			nodeIndex->reservationNum = UserInput_Number(false);
+
+			badInput = false;
+			break;
+		case 3:				// Update passenger ID
+			// Let the user know of the current value
+			std::cout << "Current passenger number: " << nodeIndex->passengerID << std::endl;
+			// Allow the user to update that specific field:
+			std::cout << "Enter a new value: ";
+			nodeIndex->passengerID = UserInput_Number(false);
+
+			badInput = false;
+			break;
+		case 4:				// Seat Number
+			// Let the user know of the current value
+			std::cout << "Current seat number: " << nodeIndex->seatNum << std::endl;
+			// Allow the user to update that specific field:
+			std::cout << "Enter a new value: ";
+			nodeIndex->seatNum = UserInput_Number(false);
+
+			badInput = false;
+			break;
+		case 0:				// Exit; silently leave this function
+			badInput = false;
+			break;
+		default:			// Bad input
+			badInput = true;
+			break;
+		}
+	} while (!badInput);
+} // UpdatePassengerInformation()
 #endif // !__LinkList__Implementation__
