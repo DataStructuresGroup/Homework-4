@@ -852,7 +852,7 @@ inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKey
 		return false;
 
 	// Scan the node
-	while (*cur == NULL)
+	while (*cur != NULL)
 	{
 		// Besides using a nesting conditional statement, we are going to use
 		//  a switch statement for simplicity.
