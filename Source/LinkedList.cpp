@@ -1104,7 +1104,7 @@ bool delete_node(int key)
 	}
 	else
 	{
-		cout "ERRROR this is not in the list!" << endl; // error statement in case the person types in the wrong thing
+		cout << "ERRROR this is not in the list!" << endl; // error statement in case the person types in the wrong thing
 		return false;
 	}
 }
