@@ -1055,19 +1055,19 @@ inline void FindPrintPassenger(Node* head)
 /*
 bool search_node(int key)
 
-{ node*temp=head;
+{ node*temp=head; // sets up the temp and cur functions
 pre = NULL;
 
 cur = temp;
 
-while(cur != NULL)
+while(cur != NULL) // makes sure cur is not NULLL
 {
 
-if (cur-> key ==key)
+if (cur-> key ==key)  // checks to see if cur is key
  {return true;
 }
 else{
-pre = cur;
+pre = cur;   // these next two lines move to the next section in case the first cur was not the key
 cur = cur->next;
 
 }
@@ -1076,17 +1076,17 @@ return false;
 
 
 bool delete_node(int key){
-cout << "Enter what you want to delete:";
+cout << "Enter what you want to delete: "; // cout statment so person can type in what they are deleteing
 cin >> key;
 
-if (search_node(key))
+if (search_node(key)) // runs the search function to see if the object types is in the directory
 {
- pre->next = cur->next;
+ pre->next = cur->next; // deletes the section then moves to the next one
  delete cur;
  return true;
 }
 else{
-cout "ERRROR this is not in the list!" << endl;
+cout "ERRROR this is not in the list!" << endl; // error statement in case the person types in the wrong thing
 return false;
 }
 */
