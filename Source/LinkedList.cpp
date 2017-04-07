@@ -931,11 +931,10 @@ inline void FindPrintPassenger(Node* head)
 	Node* nullityNode = NULL;
 
 	do {
-		// Retrieve the end-user's STDIN and process the request
+		// Capture the user's request and process the request
 		switch (UserInput_Number())
 		{
 		case 1:						// Last name
-
 			// Capture the last name from the end-user
 			std::cout << "Enter passenger's last name: ";
 			captureString = UserInput_String(false);
@@ -971,7 +970,7 @@ inline void FindPrintPassenger(Node* head)
 			break;
 		case 3:						// Reservation ID
 			std::cout << "Enter passenger's Reservation number: ";
-			captureInt >> UserInput_Number(false);
+			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
 			if (Search(&nodeIndex,	// Our list to be scanned and processed.
@@ -988,7 +987,7 @@ inline void FindPrintPassenger(Node* head)
 			break;
 		case 4:						// Passenger ID
 			std::cout << "Enter passenger's Passenger number: ";
-			captureInt >> UserInput_Number(false);
+			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
 			if (Search(&nodeIndex,	// Our list to be scanned and processed.
@@ -1005,7 +1004,7 @@ inline void FindPrintPassenger(Node* head)
 			break;
 		case 5:						// Seat Number [Occupied]
 			std::cout << "Enter passenger's Seat number: ";
-			captureInt >> UserInput_Number(false);
+			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
 			if (Search(&nodeIndex,	// Our list to be scanned and processed.
@@ -1023,7 +1022,7 @@ inline void FindPrintPassenger(Node* head)
 		case 0:						// Exit; silently leave this function
 			badInput = false;
 			break;
-		default:
+		default:					// Bad input
 			std::cout << "Incorrect option!" << std::endl;
 			badInput = true;
 			break;

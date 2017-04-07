@@ -130,7 +130,7 @@ void EvaluateAndRun(char STDIN, Node** head)
 	case '3':	// Print all customers [primary pointer]
 		Print_Passenger_List(*head);
 		break;
-	case '4':
+	case '4':	// Search for passenger
 		FindPrintPassenger(*head);
 		break;
 	case 'X':	// Quietly pass through; exit
