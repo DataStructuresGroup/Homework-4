@@ -798,8 +798,6 @@ inline void ManualCustomerAdd(Node** head)
 //	This is a very important function that will promptly scan the entire list for a specific key.
 // -----------------------------------------------
 // Parameters:
-//	head [Node* - readonly]
-//		Use for scanning if necessary; primary list
 //	cur [Node** - Alterable]
 //		Used for processing; holds the search point
 //	pre [Node** - Alterable]
@@ -819,7 +817,7 @@ inline void ManualCustomerAdd(Node** head)
 //		true = an error occured
 //		false = operation successful
 // ===============================================
-inline bool Search(Node* head, Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
+inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
 {
 
 } // Search()
