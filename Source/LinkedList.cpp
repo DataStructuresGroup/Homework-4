@@ -56,7 +56,8 @@ void Reservation::MainMenu()
 		<< "[5] - Update passenger information" << std::endl
 		<< "[6] - Remove passenger from list" << std::endl
 		<< "[7] - Check in passenger" << std::endl
-		<< "[8] - Print check in list" << std::endl
+		<< "[8] - Print check in report" << std::endl
+		<< "[9] - Print menu report" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -106,6 +107,9 @@ void Reservation::EvaluateAndRun(char STDIN)
 		break;
 	case '8':
 		Print_CheckIn_List();
+		break;
+	case '9':
+		Print_Meal_List();
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
@@ -1512,6 +1516,18 @@ void Reservation::CheckInPassenger()
 		}
 }//CheckInPassenger
 
+
+// Print Check In List
+// ===============================================
+// Documentation:
+//	This function will produce the check in report
+// -----------------------------------------------
+// Output:
+//	displays a list of all passengers in the list.  Will display
+//  their first and last names and whether they are checked in or not.
+//  it will also display the total amount of checked in passengers and
+//  the total amount of passengers not checked in
+// ===============================================
 void Reservation::Print_CheckIn_List()
 {
 	int CheckedInCnt = 0;	//counts the number of passengers checked in
@@ -1535,7 +1551,70 @@ void Reservation::Print_CheckIn_List()
 		temp = temp->next;
 	}
 	
-	std::cout<< std::endl << "There are " << CheckedInCnt << " Passengers CheckedIn." <<std::endl;
-	std::cout<< std::endl << "There are " << NotCheckedInCnt << " Passengers CheckedIn." <<std::endl;
+	std::cout<< std::endl << "There are " << CheckedInCnt << " Passengers checked in." <<std::endl;
+	std::cout<< std::endl << "There are " << NotCheckedInCnt << " Passengers not checked in." <<std::endl;
 }	//Print Check In List
+
+// Print meal list
+// ===============================================
+// Documentation:
+//	This function will display the passenger meal list report
+// -----------------------------------------------
+// Output:
+//	Outputs a list of all passengers.  Will display their meal choices and
+//	their first and last names.  It will also display the totals for each meal
+//  choice that is available.
+// ===============================================
+void Reservation::Print_Meal_List()
+{
+	
+	Node* temp = head;	
+	
+	if(temp != NULL){
+		//these counters will count the amount of each meal that was chosen
+		//for all passengers in the list
+		int meal1Cnt = 0;
+		int meal2Cnt = 0;
+		int meal3Cnt = 0;
+		int meal4Cnt = 0;
+		int meal5Cnt = 0;
+	
+
+	
+		while(temp != NULL){	//increments until the end of the list is reached
+		
+								//displays the passengers name and meal choice
+			std::cout << temp->nameFirst << " " << temp->nameLast << std::endl
+					  << "Meal Choice:  " << temp->mealType << std::endl << std::endl;
+				  
+					  //increments counter for whichever meal the passenger chose.
+			if(temp->mealType.compare("Monkey Brains") == 0){
+				meal1Cnt++;
+			}else if(temp->mealType.compare("Tuna Eyeballs") == 0){
+				meal2Cnt++;
+			}else if(temp->mealType.compare("Raw Octopus") == 0){
+				meal3Cnt++;
+			}else if(temp->mealType.compare("Fish") == 0){
+				meal4Cnt++;
+			}else if(temp->mealType.compare("Expired Peanuts") == 0){
+				meal5Cnt++;
+			}
+
+
+			temp = temp->next;	//moves to next passenger in the list
+		}//while
+	
+		//displays meal choice totals
+		std::cout << "There are " << meal1Cnt << " orders for Monkey Brains." << std::endl
+				  << "There are " << meal2Cnt << " orders for Tuna Eyeballs." << std::endl
+				  << "There are " << meal3Cnt << " orders for Raw Octopus." << std::endl
+				  << "There are " << meal4Cnt << " orders for Fish." << std::endl
+				  << "There are " << meal5Cnt << " orders for Expired Peanuts." << std::endl << std::endl;
+				  
+	}else{		//if for no list
+	
+		std::cout << "There are currently no passengers in the list." << std::endl;
+	}
+			  
+}//print meal list
 #endif // !__LinkList__Implementation__
