@@ -15,6 +15,132 @@
 
 
 
+// Instructions
+// ===============================================
+// Documentation:
+//	Provide instructions to the user as to what this program is doing and how to use it.
+// ===============================================
+void Reservation::Instructions()
+{
+	std::cout << "WELCOME TO BLUE-SKY AIRLINES!" << std::endl
+		<< "Where we are dedicated to suckering you out of your money!" << std::endl
+		<< "---------------------------------------------" << std::endl
+		<< "This is a simulation program that provides some flexibility with" << std::endl
+		<< "adjusting the link list and minor management tools.  With this program," << std::endl
+		<< "it is possible to generate a reasonable size customer list and perform" << std::endl
+		<< "maintenance as needed.  Such maintenance could be removing a customer," << std::endl
+		<< "updating the customer's information, update reservations, change seats," << std::endl
+		<< "and even revise customer's inflight meals!  Use the menu to navigate" << std::endl
+		<< "through this program and try to crash it!  I dare you!" << std::endl
+		<< "Looks like I picked the wrong week to quit sniffing glue. -Steve McCroskey"  // reference: https://youtu.be/VmW-ScmGRMA
+		<< std::endl << std::endl;
+} // Instructions()
+
+
+
+// Main Menu
+// ===============================================
+// Documentation:
+//	This function will provide a list of functionality that is available to the end-user.
+// ===============================================
+void Reservation::MainMenu()
+{
+	// The border for the main menu screen
+	std::cout << "Select an option:" << std::endl
+		<< "====================" << std::endl;
+
+	// Main menu options
+	std::cout << "[1] - Automatically Generate a Customer List" << std::endl
+		<< "[2] - Manually add a new customer" << std::endl
+		<< "[3] - Print all customer information" << std::endl
+		<< "[4] - Search for a passenger" << std::endl
+		<< "[5] - Update passenger information" << std::endl
+		<< "[X] - Exit" << std::endl << std::endl;
+} // MainMenu()
+
+
+
+// Evaluate and Run
+// ===============================================
+// Documentation:
+//	This will allow the user to perform the requested action, if STDIN is legal.
+// -----------------------------------------------
+// Parameters:
+//	STDIN [char]
+//		User's requested action
+//	head [Node**]
+//		Primary list that contains user info
+// ===============================================
+void Reservation::EvaluateAndRun(char STDIN)
+{
+	switch (STDIN)
+	{
+	case '1':	// Automatically generate customer list
+		Autofill_List();
+		break;
+	case '2':	// Manually input customer
+		ManualCustomerAdd();
+		break;
+	case '3':	// Print all customers [primary pointer]
+		Print_Passenger_List();
+		break;
+	case '4':	// Search for passenger
+		FindPrintPassenger();
+		break;
+	case '5':
+		UpdatePassengerInformation();
+		break;
+	case 'X':	// Quietly pass through; exit
+		break;
+	case 'x':	// Quietly pass through; exit
+		break;
+	default:	// Bad Input
+		std::cout << "Incorrect option!" << std::endl << std::endl;
+		break;
+	} // switch
+
+	ClearBuffer();	// Provide spacing after evaluation
+} // EvaluateAndRun()
+
+
+
+// Prompt User [Main Menu]
+// ===============================================
+// Documentation:
+//  Capture user input and return it as an integer.  By convention, use a python'ish input prompt.
+//  From personal experience, this is more clear that the program is 'wanting' something from the user.
+// -----------------------------------------------
+// Output:
+//  STDIN [Char]
+//		Return the STDIN from the end-user.
+// ===============================================
+char Reservation::PromptUser_MainMenu()
+{
+	char inputCapture = '-';		// If incase - to avoid bugs, use a default value.
+	std::cout << ">>>>> ";			// The python'ish prompt
+	std::cin >> inputCapture;		// Capture the input
+
+	return inputCapture;			// Return the value.
+} // PromptUser_MainMenu()
+
+
+
+// Clear Buffer
+// ===============================================
+// This function, despite minimal, will try to make the buffer easier to read for the end user.
+// ===============================================
+void Reservation::ClearBuffer()
+{
+	std::cout << std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl
+		<< std::endl;
+} // ClearBuffer()
+
+
+
 // Print Passenger List
 // ===============================================
 // Documentation:
@@ -24,7 +150,21 @@
 //	head [Node*]
 //		This will take any valid link list.
 // ===============================================
-inline void Print_Passenger_List(Node* head)
+
+Reservation::Reservation()
+{
+	head = NULL;	
+};
+// Print Passenger List
+// ===============================================
+// Documentation:
+//	This function will output all of the information within the link list.
+// -----------------------------------------------
+// Parameters:
+//	head [Node*]
+//		This will take any valid link list.
+// ===============================================
+void Reservation::Print_Passenger_List()
 {
 	// If head is empty, present an error message and leave this function.
 	if (head == NULL)
@@ -63,14 +203,14 @@ inline void Print_Passenger_List(Node* head)
 //	NewEntry [Node]
 //		New information that is to be merged or imported into the 'head'.
 // ===============================================
-inline void InsertNode(Node** head, Node* newEntry)
+void Reservation::InsertNode(Node* newEntry)
 {
-	if (*head == NULL)			// if the current list contains no entries
-		*head = newEntry;		//  then immediately add the temp entry to the list.
+	if (head == NULL)			// if the current list contains no entries
+		head = newEntry;		//  then immediately add the temp entry to the list.
 	else
 	{
-		newEntry->next = *head;	// Import the primary list to the temp entry.
-		*head = newEntry;		// Export all of the entries from the temp
+		newEntry->next = head;	// Import the primary list to the temp entry.
+		head = newEntry;		// Export all of the entries from the temp
 								// list to the primary list.
 	}
 } // InsertNode()
@@ -103,7 +243,7 @@ inline void InsertNode(Node** head, Node* newEntry)
 //  mealType [string]
 //		Client's requested meal.
 // ===============================================
-inline void CreateNewNode(Node** head, std::string nameFirst, std::string nameLast, int passengerID, int reservationNum, int telephoneNum, int seatNum, std::string mealType)
+void Reservation::CreateNewNode(std::string nameFirst, std::string nameLast, int passengerID, int reservationNum, int telephoneNum, int seatNum, std::string mealType)
 {
 	// Create a new node to store the new information
 	Node* newEntry = new Node;
@@ -120,7 +260,7 @@ inline void CreateNewNode(Node** head, std::string nameFirst, std::string nameLa
 
 	newEntry->next = NULL;
 	// Import the data into the primary list
-	InsertNode(head, newEntry);
+	InsertNode(newEntry);
 } // CreateNewNode()
 
 
@@ -145,7 +285,7 @@ inline void CreateNewNode(Node** head, std::string nameFirst, std::string nameLa
 //	Returns a specific, though randomized, integer based on the
 //   key used.
 // ===============================================
-inline int Autofill_List_Numbers(int key)
+int Reservation::Autofill_List_Numbers(int key)
 {
 	// Because we want serious randomness in this lousy program!
 	srand(time(NULL));
@@ -189,7 +329,7 @@ inline int Autofill_List_Numbers(int key)
 //      food or meal that the passenger is willing
 //      order.
 // ===============================================
-inline std::string Autofill_List_MealChoice()
+std::string Reservation::Autofill_List_MealChoice()
 {
 	// Give us more randomness
 	srand(time(NULL));
@@ -230,7 +370,7 @@ inline std::string Autofill_List_MealChoice()
 // Output:
 //	Returns the seat ID that is available.
 // ===============================================
-inline int GetSeatAvailable()
+int Reservation::GetSeatAvailable()
 {
 	srand(time(NULL));
 
@@ -252,7 +392,7 @@ inline int GetSeatAvailable()
 //	head [Node*]
 //		This will take any valid link list.
 // ===============================================
-inline void Autofill_List(Node** head)
+void Reservation::Autofill_List()
 {
 	// __HARD_CODED__
 	// Update this algorithm with caution!
@@ -265,7 +405,7 @@ inline void Autofill_List(Node** head)
 		switch (i)
 		{
 		case 0:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Fabian",					// First Name
 						"Nadie",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -275,7 +415,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 1:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Ganit",					// First Name
 						"Ume",						// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -285,7 +425,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 2:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Dan",						// First Name
 						"Randi",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -295,7 +435,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 3:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(					// primary list
 						"Reese",					// First Name
 						"Nafisa",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -305,7 +445,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 4:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Nina",						// First Name
 						"Albany",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -315,7 +455,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 5:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Alexis",					// First Name
 						"Wayne",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -325,7 +465,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 6:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Rani",						// First Name
 						"Falcon",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -335,7 +475,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 7:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Yasmine",					// First Name
 						"Benicia",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -345,7 +485,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 8:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Al",						// First Name
 						"Bundy",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -355,7 +495,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 9:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Janeeva",					// First Name
 						"Zaina",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -365,7 +505,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 10:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Ofra",						// First Name
 						"Sable",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -375,7 +515,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 11:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Nadalia",					// First Name
 						"Hao",						// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -385,7 +525,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 12:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Hana",						// First Name
 						"Starr",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -395,7 +535,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 13:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(					// primary list
 						"Ashia",					// First Name
 						"Bäddan",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -405,7 +545,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 14:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Qi",						// First Name
 						"Wahponjea",				// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -415,7 +555,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 15:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Hali",						// First Name
 						"Eamon",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -425,7 +565,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 16:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Tai Yang",					// First Name
 						"Taipa",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -435,7 +575,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 17:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Achava",					// First Name
 						"Nili",						// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -445,7 +585,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 18:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"John",						// First Name
 						"Hancock",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -455,7 +595,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		case 19:
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Theodore",					// First Name
 						"Roosevelt",				// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
@@ -465,7 +605,7 @@ inline void Autofill_List(Node** head)
 						Autofill_List_MealChoice());// Preferred Meal
 			break;
 		default: // Easter Egg!
-			CreateNewNode(head,						// primary list
+			CreateNewNode(						// primary list
 						"Jenny",					// First Name
 						"Tommy Tutone",				// Last Name
 						-919,						// Passenger ID [919 area code ;)]
@@ -493,7 +633,7 @@ inline void Autofill_List(Node** head)
 //	string
 //		Returns a string captured from STDIN.
 // ===============================================
-inline std::string UserInput_String(bool UsePrompt = true)
+std::string Reservation::UserInput_String(bool UsePrompt = true)
 {
 	std::string userInput;		// Use this to capture the STDIN
 
@@ -520,7 +660,7 @@ inline std::string UserInput_String(bool UsePrompt = true)
 //	int
 //		Returns an int captured from STDIN.
 // ===============================================
-inline int UserInput_Number(bool UsePrompt = true)
+int Reservation::UserInput_Number(bool UsePrompt = true)
 {
 	int userInput;				// Use this to capture the STDIN
 
@@ -547,7 +687,7 @@ inline int UserInput_Number(bool UsePrompt = true)
 //	bool
 //		Returns a bool captured from STDIN.
 // ===============================================
-inline bool UserInput_Bool(bool UsePrompt = true)
+bool Reservation::UserInput_Bool(bool UsePrompt = true)
 {
 	char userInput;				// Use this to capture the STDIN
 
@@ -575,7 +715,7 @@ inline bool UserInput_Bool(bool UsePrompt = true)
 //	string
 //		Returns the preferred meal choice
 // ===============================================
-inline std::string ManualCustomerAdd_MealChoice()
+std::string Reservation::ManualCustomerAdd_MealChoice()
 {
 	// We will use this to store the user's choice and then process it later.
 	int userChoice;
@@ -633,7 +773,7 @@ inline std::string ManualCustomerAdd_MealChoice()
 //	head [Node**]
 //		The list in which is to be appended
 // ===============================================
-inline void ManualCustomerAdd(Node** head)
+void Reservation::ManualCustomerAdd()
 {
 	// Declarations
 	// ------------------
@@ -691,7 +831,7 @@ inline void ManualCustomerAdd(Node** head)
 	// ----
 
 	// Now that we have the information we need, now lets try to add this new entry into the list!
-	CreateNewNode(head,				// primary list
+	CreateNewNode(				// primary list
 		stdinNameFirst,				// First Name
 		stdinNameLast,				// Last Name
 		Autofill_List_Numbers(0),	// Passenger ID [919 area code ;)]
@@ -756,7 +896,7 @@ inline void ManualCustomerAdd(Node** head)
 //		true = an error occurred
 //		false = operation successful
 // ===============================================
-inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
+bool Reservation::Search(Node** cur, Node** pre, int searchMode, std::string searchKeyString = "NA", int searchKeyInt = -255)
 {
 	// If the cur pointer points to NULL, then there is nothing to scan.
 	if (*cur == NULL)
@@ -820,7 +960,7 @@ inline bool Search(Node** cur, Node** pre, int searchMode, std::string searchKey
 //	 Search() && Print_Passenger_List() && UserInput_String()
 //   UserInput_Number()
 // ===============================================
-inline void FindPrintPassenger(Node* head)
+void Reservation::FindPrintPassenger()
 {
 	// Present the user with a menu in which to search by
 	std::cout << "Search for Passenger:" << std::endl
@@ -857,7 +997,7 @@ inline void FindPrintPassenger(Node* head)
 				captureString))		// String to search
 			{
 				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List(nodeIndex);// Output the results
+				Print_Passenger_List();// Output the results
 			} // if
 			else
 				std::cout << "Unable to find passenger: " << captureString
@@ -877,7 +1017,7 @@ inline void FindPrintPassenger(Node* head)
 				captureInt))		// integer to search
 			{
 				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List(nodeIndex);// Output the results
+				Print_Passenger_List();// Output the results
 			} // if
 			else
 				std::cout << "Unable to find passenger with the telephone number: " << captureInt
@@ -897,7 +1037,7 @@ inline void FindPrintPassenger(Node* head)
 				captureInt))		// integer to search
 			{
 				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List(nodeIndex);// Output the results
+				Print_Passenger_List();// Output the results
 			} // if
 			else
 				std::cout << "Unable to find passenger with the reservation number: " << captureInt
@@ -917,7 +1057,7 @@ inline void FindPrintPassenger(Node* head)
 				captureInt))		// integer to search
 			{
 				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List(nodeIndex);// Output the results
+				Print_Passenger_List();// Output the results
 			} // if
 			else
 				std::cout << "Unable to find passenger with the passenger number: " << captureInt
@@ -937,7 +1077,7 @@ inline void FindPrintPassenger(Node* head)
 				captureInt))		// integer to search
 			{
 				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List(nodeIndex);// Output the results
+				Print_Passenger_List();// Output the results
 			} // if
 			else
 				std::cout << "Unable to a find a passenger in seat number: " << captureInt
@@ -969,15 +1109,15 @@ inline void FindPrintPassenger(Node* head)
 // ========================================================================================================
 
 
-inline bool delete_node(Node** head, Node** pre, int passengerIDKey)
+bool Reservation::delete_node(Node** pre, int passengerIDKey)
 {       
-	if (*head == NULL){   //makes sure there is something in head
+	if (head == NULL){   //makes sure there is something in head
                 return false;
 
 	}
-        while(*head != NULL){
-                if((*head)->passengerID = passengerIDKey){ // searches the passenger IDs
-                        (*pre)->next = (*head)->next; // moves to the next ID
+        while(head != NULL){
+                if((head)->passengerID = passengerIDKey){ // searches the passenger IDs
+                        (*pre)->next = (head)->next; // moves to the next ID
                         delete head; // deletes the node if the node is the node that needs to be deleted
                         return true;
 		}
@@ -1005,7 +1145,7 @@ inline bool delete_node(Node** head, Node** pre, int passengerIDKey)
 //
 //  This function depends on the Search() and the input (number\int) function.
 // ===============================================
-inline void UpdatePassengerInformation(Node** head)
+void Reservation::UpdatePassengerInformation()
 {
 	// Present the user with a menu in which to search by
 	std::cout << "Search for Passenger:" << std::endl
@@ -1031,6 +1171,7 @@ inline void UpdatePassengerInformation(Node** head)
 								// IIF the passenger was found, otherwise - its false.
 								// IIF this is true, then we will allow the user to update
 								//  that node index.
+								
 	do {
 		// Capture the user's request and process the request
 		switch (UserInput_Number())
@@ -1041,7 +1182,7 @@ inline void UpdatePassengerInformation(Node** head)
 			captureString = UserInput_String(false);
 			std::cout << std::endl;
 
-			if (Search(head,		// Our list to be scanned and processed.
+			if (Search(&head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				0,					// Search by last name
 				captureString))		// String to search
@@ -1057,7 +1198,7 @@ inline void UpdatePassengerInformation(Node** head)
 			captureInt >> UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(head,		// Our list to be scanned and processed.
+			if (Search(&head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				4,					// Search by telephone number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1074,7 +1215,7 @@ inline void UpdatePassengerInformation(Node** head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(head,		// Our list to be scanned and processed.
+			if (Search(&head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				3,					// Search by reservation number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1091,7 +1232,7 @@ inline void UpdatePassengerInformation(Node** head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(head,		// Our list to be scanned and processed.
+			if (Search(&head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				2,					// Search by passenger number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1108,7 +1249,7 @@ inline void UpdatePassengerInformation(Node** head)
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(head,		// Our list to be scanned and processed.
+			if (Search(&head,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				5,					// Search by seat number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1166,37 +1307,37 @@ inline void UpdatePassengerInformation(Node** head)
 		{
 		case 1:				// Update telephone
 			// Let the user know of the current value
-			std::cout << "Current telephone number: " << (*head)->telephoneNum << std::endl;
+			std::cout << "Current telephone number: " << head->telephoneNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			(*head)->telephoneNum = UserInput_Number(false);
+			head->telephoneNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 2:				// Update reservation ID
 			// Let the user know of the current value
-			std::cout << "Current reservation number: " << (*head)->reservationNum << std::endl;
+			std::cout << "Current reservation number: " << head->reservationNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			(*head)->reservationNum = UserInput_Number(false);
+			head->reservationNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 3:				// Update passenger ID
 			// Let the user know of the current value
-			std::cout << "Current passenger number: " << (*head)->passengerID << std::endl;
+			std::cout << "Current passenger number: " << head->passengerID << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			(*head)->passengerID = UserInput_Number(false);
+			head->passengerID = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 4:				// Seat Number
 			// Let the user know of the current value
-			std::cout << "Current seat number: " << (*head)->seatNum << std::endl;
+			std::cout << "Current seat number: " << head->seatNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			(*head)->seatNum = UserInput_Number(false);
+			head->seatNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
