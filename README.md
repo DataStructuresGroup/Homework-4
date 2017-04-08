@@ -4,16 +4,20 @@ Focus on: Linked Lists, Dynamic Memory Allocation, and Object Oriented Programmi
 # TASK:
 Assume the Blue-Sky airlines use a linked list to maintain records for all passengers on its one and only flight.  This list has a node for each passenger and is maintained in alphabetical order by passenger name.  Each passenger node may contains the passenger name, passenger ID, reservation No, telephone number, seat number, and menu preference.  Possible transactions may include but not limited to:
 
-| Function Name          | functionality |
-|------------------------|---------------|
-| Main menu              | Show transaction choices |
-| Enter a reservation    | Add a passenger to the list |
-| Cancel a reservation   | Delete a passenger from the list |
-| Search for a passenger | Search for a special passenger.  If the passenger is found, then shows passenger's information otherwise prints "Not found". |
-| Change a reservation   | Modify seat number and/or menu preference only.  __NOTE__: No seat number can be used more than once. |
-| Print passenger list   | Prints all passengers information. |
-| Produce reports        | Produces the menu report and check-in report. |
-| Exit                   | Quits the program |
+| Status | Function Name          | functionality |
+|--------|------------------------|---------------|
+| Done   | Main menu              | Show transaction choices |
+| Done   | Enter a reservation    | Add a passenger to the list |
+| Done   | Cancel a reservation   | Delete a passenger from the list |
+| Done   | Search for a passenger | Search for a special passenger.  If the passenger is found, then shows passenger's information otherwise prints "Not found". |
+| Done   | Change a reservation   | Modify seat number and/or menu preference only.  __NOTE__: No seat number can be used more than once. |
+| Done   | Print passenger list   | Prints all passengers information. |
+| Pending| Produce reports        | Produces the menu report and check-in report. |
+| Done   | Exit                   | Quits the program |
+| Pending| Unqiue ID's            | Passenger ID, seat number, and reservation numbers are all unique |
+| Pending| Sort list              | Sort the passenger list alpabetically |
+| Pending| Documentation          | All documentation required for CS3003 standards and submission policies |
+| Pending| Final Submission Ready | Ready for the final submission |
 
 # Requirements
  1. You must use a linked list to store your costumer's information
