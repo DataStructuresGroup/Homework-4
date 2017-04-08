@@ -180,11 +180,13 @@ void Reservation::Print_Passenger_List()
 		return;
 	} // if
 
+	int indexCounter = 1; // This will be helpful to know what index the client is located within the list.
 
 	// Output the available list with the information required.
 	while (temp != NULL)
 	{
-		std::cout << "Passenger ID: " << temp->passengerID << std::endl
+		std::cout << "Index number: " << indexCounter << std::endl
+			<< "Passenger ID: " << temp->passengerID << std::endl
 			<< "Passenger Name: " << temp->nameLast << ", " << temp->nameFirst << std::endl
 			<< "Telephone Number: " << temp->telephoneNum << std::endl
 			<< "Reservation Number: " << temp->reservationNum << std::endl
@@ -192,6 +194,7 @@ void Reservation::Print_Passenger_List()
 			<< "Preferred Meal Plan: " << temp->mealType << std::endl;
 
 		temp = temp->next;	// Move to the next node
+		indexCounter++;
 	} // while
 } // Print_Passenger_List()
 
