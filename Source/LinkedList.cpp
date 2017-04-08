@@ -1205,6 +1205,8 @@ void Reservation::UpdatePassengerInformation()
 								// IIF this is true, then we will allow the user to update
 								//  that node index.
 								
+	Node* temp = head;			//used so the head pointer is not wrongly updated
+								
 	do {
 		// Capture the user's request and process the request
 		switch (UserInput_Number())
@@ -1215,7 +1217,7 @@ void Reservation::UpdatePassengerInformation()
 			captureString = UserInput_String(false);
 			std::cout << std::endl;
 
-			if (Search(&head,		// Our list to be scanned and processed.
+			if (Search(&temp,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				0,					// Search by last name
 				captureString))		// String to search
@@ -1231,7 +1233,7 @@ void Reservation::UpdatePassengerInformation()
 			captureInt >> UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&head,		// Our list to be scanned and processed.
+			if (Search(&temp,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				4,					// Search by telephone number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1248,7 +1250,7 @@ void Reservation::UpdatePassengerInformation()
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&head,		// Our list to be scanned and processed.
+			if (Search(&temp,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				3,					// Search by reservation number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1265,7 +1267,7 @@ void Reservation::UpdatePassengerInformation()
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&head,		// Our list to be scanned and processed.
+			if (Search(&temp,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				2,					// Search by passenger number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1282,7 +1284,7 @@ void Reservation::UpdatePassengerInformation()
 			captureInt = UserInput_Number(false);
 			std::cout << std::endl;
 
-			if (Search(&head,		// Our list to be scanned and processed.
+			if (Search(&temp,		// Our list to be scanned and processed.
 				&nullityNode,		// Required for the function, but not used.
 				5,					// Search by seat number
 				"NA",				// Default to 'NA' due to standard; unused.
@@ -1340,37 +1342,37 @@ void Reservation::UpdatePassengerInformation()
 		{
 		case 1:				// Update telephone
 			// Let the user know of the current value
-			std::cout << "Current telephone number: " << head->telephoneNum << std::endl;
+			std::cout << "Current telephone number: " << temp->telephoneNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			head->telephoneNum = UserInput_Number(false);
+			temp->telephoneNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 2:				// Update reservation ID
 			// Let the user know of the current value
-			std::cout << "Current reservation number: " << head->reservationNum << std::endl;
+			std::cout << "Current reservation number: " << temp->reservationNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			head->reservationNum = UserInput_Number(false);
+			temp->reservationNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 3:				// Update passenger ID
 			// Let the user know of the current value
-			std::cout << "Current passenger number: " << head->passengerID << std::endl;
+			std::cout << "Current passenger number: " << temp->passengerID << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			head->passengerID = UserInput_Number(false);
+			temp->passengerID = UserInput_Number(false);
 
 			badInput = false;
 			break;
 		case 4:				// Seat Number
 			// Let the user know of the current value
-			std::cout << "Current seat number: " << head->seatNum << std::endl;
+			std::cout << "Current seat number: " << temp->seatNum << std::endl;
 			// Allow the user to update that specific field:
 			std::cout << "Enter a new value: ";
-			head->seatNum = UserInput_Number(false);
+			temp->seatNum = UserInput_Number(false);
 
 			badInput = false;
 			break;
