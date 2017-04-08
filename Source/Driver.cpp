@@ -21,6 +21,8 @@
 
 #pragma region Inclusions
 #include <iostream>			// Used for Input and Output
+#include <stdlib.h>			// Used for the rand() function
+#include <time.h>			// Used for the srand() funtion
 #include "LinkedList.h"		// Link List header; containing the link list methodology.
 
 // DEPRECATED [VS LNK2005 <!>]
@@ -42,6 +44,9 @@
 // ===============================================
 int main()
 {
+	// Because we want serious randomness in this lousy program!
+	srand(time(NULL));
+
 	// Create a new instance of the link list; this is our primary list!
 	Reservation BSA;
 

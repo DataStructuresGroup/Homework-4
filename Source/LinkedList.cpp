@@ -8,8 +8,6 @@
 #include <cstring>			// Used for the 'NULL' keyword, despite that it
 							//  is '0' or 'OL', but keep this for convention
 							//  sakes.
-#include <stdlib.h>			// Used for the rand() function
-#include <time.h>			// Used for the srand() funtion
 #include "LinkedList.h"		// Implementation for Link List.
 #pragma endregion
 
@@ -317,9 +315,6 @@ void Reservation::CreateNewNode(std::string nameFirst, std::string nameLast, int
 // ===============================================
 int Reservation::Autofill_List_Numbers(int key)
 {
-	// Because we want serious randomness in this lousy program!
-	srand(time(NULL));
-
 	// Determine the requested type to return
 	switch (key)
 	{
@@ -361,9 +356,6 @@ int Reservation::Autofill_List_Numbers(int key)
 // ===============================================
 std::string Reservation::Autofill_List_MealChoice()
 {
-	// Give us more randomness
-	srand(time(NULL));
-
 	// Randomly pick a number that will
 	// allow us to choose which meal the
 	// passenger is going to eat.
@@ -402,8 +394,6 @@ std::string Reservation::Autofill_List_MealChoice()
 // ===============================================
 int Reservation::GetSeatAvailable()
 {
-	srand(time(NULL));
-
 	return rand() % 100 + 1;
 } // GetSeatAvailable()
 
