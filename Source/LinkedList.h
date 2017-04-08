@@ -74,5 +74,6 @@ struct Reservation
 	void UpdatePassengerInformation();
 	void CheckInPassenger();
 	void Print_CheckIn_List();
+	void Print_Meal_List();
 };
 #endif // !__LinkedList__
