@@ -61,7 +61,7 @@ struct Reservation
 	void CreateNewNode(std::string, std::string, int, int, int, int, std::string);
 	int Autofill_List_Numbers(int);
 	std::string Autofill_List_MealChoice();
-	int GetSeatAvailable();
+	int GetSeatAvailable(int);
 	void Autofill_List();
 	std::string UserInput_String(bool);
 	int UserInput_Number(bool);

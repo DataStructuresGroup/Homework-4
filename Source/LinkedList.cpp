@@ -414,8 +414,12 @@ std::string Reservation::Autofill_List_MealChoice()
 // -----------------------------------------------
 // Output:
 //	Returns the seat ID that is available.
+//	if the seat is not available or is not unique,
+//	then a value of -255 is returned, signaling an error.
+//   however, if the seat is available - then the
+//   seat requested will be returned to confirm.
 // ===============================================
-int Reservation::GetSeatAvailable()
+int Reservation::GetSeatAvailable(int requestKey = -255)
 {
 	// Initializations
 	// -------------------------
@@ -427,12 +431,20 @@ int Reservation::GetSeatAvailable()
 	Node* nullityNode = NULL;	// A temporary list that wont be used, but required for the search() function.
 	// -------------------------
 
-	do			// Keep scanning until we find unique key
-	{			// It is possible for processing lag phenomenon
-		newRandomValue = rand() % 100 + 1;
-		uniqueFound = Search(&temp, &nullityNode, 5, " ", newRandomValue) ? false : true;
-	} while (!uniqueFound);
-	return newRandomValue;	// Return the unique key
+	// Check to see if the user is requesting a new seat
+	if (requestKey != -255)
+	{	// Check if the seat is available; end-user manual request
+		uniqueFound = Search(&temp, &nullityNode, 5, " ", requestKey) ? false : true;
+		newRandomValue = uniqueFound ? requestKey : -255;
+		return newRandomValue;
+	}
+	else			// This will be used for auto fill functionality
+		do			// Keep scanning until we find unique key
+		{			// It is possible for processing lag phenomenon
+			newRandomValue = rand() % 100 + 1;
+			uniqueFound = Search(&temp, &nullityNode, 5, " ", newRandomValue) ? false : true;
+		} while (!uniqueFound);
+		return newRandomValue;	// Return the unique key
 } // GetSeatAvailable()
 
 
@@ -870,19 +882,39 @@ void Reservation::ManualCustomerAdd()
 	std::cout << "Inflight meal choice: " << std::endl;
 	stdinMealChoice = ManualCustomerAdd_MealChoice();
 	
-	// [optional] Seat
-	std::cout << "Preferred seating arrangement? [Y] = Yes | [N] = No" << std::endl;
+	// Ask the user about preferred seating
+	int seatCheck;		// Used for inspecting if seat is available
+	bool seatConfirmed;	// Used for confirming if the seat is available.
 
-	// Capture user input for seating preference
-	cacheBit = UserInput_Bool();
+	do	// To avoid errors or frustrating the end-user, put this
+	{	// question in a loop and easily escapable via auto-seat-placement.
+		// [optional] Seat
+		std::cout << "Preferred seating arrangement? [Y] = Yes | [N] = No" << std::endl;
 
-	if (cacheBit)
-	{					// The customer has seating arrangements
-		std::cout << "Preferred seating: ";
-		stdinSeat = UserInput_Number(false);
-	} // if
-	else				// Automatically find the next available seat
-		stdinSeat = GetSeatAvailable();
+		// Capture user input for seating preference
+		cacheBit = UserInput_Bool();
+
+		if (cacheBit)
+		{					// The customer has seating arrangements
+			std::cout << "Preferred seating: ";
+			stdinSeat = UserInput_Number(false);
+
+			// Check to make sure that the seat is available
+			if (GetSeatAvailable(stdinSeat) != -255)
+				seatConfirmed = true;	// Seat is available!
+			else
+			{
+				seatConfirmed = false;	// Seat is not available
+				std::cout << std::endl << "This seat is presently not available!" << std::endl;
+			} // else
+		} // if
+		else		// Automatically find the next available seat
+		{
+			stdinSeat = GetSeatAvailable();	// Automatically find available seat
+			seatConfirmed = true;			// Auto-confirm the seat being available.
+		} // else
+	} while (!seatConfirmed);
+
 
 	std::cout << std::endl;
 
