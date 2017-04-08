@@ -191,7 +191,7 @@ void Reservation::Print_Passenger_List()
 			<< "Telephone Number: " << temp->telephoneNum << std::endl
 			<< "Reservation Number: " << temp->reservationNum << std::endl
 			<< "Seat on the plane: " << temp->seatNum << std::endl
-			<< "Preferred Meal Plan: " << temp->mealType << std::endl;
+			<< "Preferred Meal Plan: " << temp->mealType << std::endl << std::endl;
 
 		temp = temp->next;	// Move to the next node
 		indexCounter++;
