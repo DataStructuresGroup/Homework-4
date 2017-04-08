@@ -50,7 +50,7 @@ struct Reservation
 	void ClearBuffer();					// Thrash the terminal buffer.	
 	
 	
-	void Print_Passenger_List();
+	void Print_Passenger_List(Node*, bool);
 	void InsertNode(Node*);
 	void CreateNewNode(std::string, std::string, int, int, int, int, std::string);
 	int Autofill_List_Numbers(int);

@@ -75,6 +75,10 @@ void Reservation::MainMenu()
 // ===============================================
 void Reservation::EvaluateAndRun(char STDIN)
 {
+	Node* nullityNode = NULL;			// Because this function requires
+										// a node datatype, we will send
+										// an empty node but will not be
+										// used during the execution.
 	switch (STDIN)
 	{
 	case '1':	// Automatically generate customer list
@@ -84,7 +88,7 @@ void Reservation::EvaluateAndRun(char STDIN)
 		ManualCustomerAdd();
 		break;
 	case '3':	// Print all customers [primary pointer]
-		Print_Passenger_List();
+		Print_Passenger_List(nullityNode, false);
 		break;
 	case '4':	// Search for passenger
 		FindPrintPassenger();
@@ -166,12 +170,23 @@ Reservation::Reservation()
 //	This function will output all of the information within the link list.
 // -----------------------------------------------
 // Parameters:
-//	head [Node*]
-//		This will take any valid link list.
+//	listIndex [Node*]
+//		This will take any valid link list, but this is only
+//		usable for single indexes, not a list!  With that,
+//		this parameter works with the 'runOnce' parameter and must be
+//		set to 'true' instead of false.  IIF false, then listIndex
+//		ignored.  Otherwise, when true, listIndex will be printed.
+//	runOnce [bool]
+//		When true, this will allow 'listIndex' to be printed on the screen.
+//		This parameter adjusts this function to only print ONE node on the
+//		terminal buffer and no more.  If this variable is 'false', then
+//		the standard list takes precedence.
 // ===============================================
-void Reservation::Print_Passenger_List()
+void Reservation::Print_Passenger_List(Node* listIndex, bool runOnce = false)
 {
-	Node *temp = head;
+	// IIF runOnce is true then use the listIndex, otherwise use head.
+	Node *temp = runOnce ? listIndex : head;
+
 	// If head is empty, present an error message and leave this function.
 	if (temp == NULL)
 	{
@@ -183,7 +198,9 @@ void Reservation::Print_Passenger_List()
 	int indexCounter = 1; // This will be helpful to know what index the client is located within the list.
 
 	// Output the available list with the information required.
-	while (temp != NULL)
+	//	IIF runOnce is true, then we will only output one index.
+	//	else, when runOnce is false, we will output the entire list available.
+	while (temp != NULL && ((runOnce && indexCounter < 2) || !runOnce))
 	{
 		std::cout << "Index number: " << indexCounter << std::endl
 			<< "Passenger ID: " << temp->passengerID << std::endl
@@ -1006,10 +1023,7 @@ void Reservation::FindPrintPassenger()
 				&nullityNode,		// Required for the function, but not used.
 				0,					// Search by last name
 				captureString))		// String to search
-			{
-				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List();// Output the results
-			} // if
+				Print_Passenger_List(nodeIndex, true);// Output the results
 			else
 				std::cout << "Unable to find passenger: " << captureString
 				<< std::endl;
@@ -1026,10 +1040,7 @@ void Reservation::FindPrintPassenger()
 				4,					// Search by telephone number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-			{
-				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List();// Output the results
-			} // if
+				Print_Passenger_List(nodeIndex, true);// Output the results
 			else
 				std::cout << "Unable to find passenger with the telephone number: " << captureInt
 				<< std::endl;
@@ -1046,10 +1057,7 @@ void Reservation::FindPrintPassenger()
 				3,					// Search by reservation number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-			{
-				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List();// Output the results
-			} // if
+				Print_Passenger_List(nodeIndex, true);// Output the results
 			else
 				std::cout << "Unable to find passenger with the reservation number: " << captureInt
 				<< std::endl;
@@ -1066,10 +1074,7 @@ void Reservation::FindPrintPassenger()
 				2,					// Search by passenger number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-			{
-				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List();// Output the results
-			} // if
+				Print_Passenger_List(nodeIndex, true);// Output the results
 			else
 				std::cout << "Unable to find passenger with the passenger number: " << captureInt
 				<< std::endl;
@@ -1086,10 +1091,7 @@ void Reservation::FindPrintPassenger()
 				5,					// Search by seat number
 				"NA",				// Default to 'NA' due to standard; unused.
 				captureInt))		// integer to search
-			{
-				nodeIndex->next = NULL;			// Ignore all nodes after the current node.
-				Print_Passenger_List();// Output the results
-			} // if
+				Print_Passenger_List(nodeIndex, true);// Output the results
 			else
 				std::cout << "Unable to a find a passenger in seat number: " << captureInt
 				<< std::endl;
