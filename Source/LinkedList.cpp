@@ -55,6 +55,7 @@ void Reservation::MainMenu()
 		<< "[3] - Print all customer information" << std::endl
 		<< "[4] - Search for a passenger" << std::endl
 		<< "[5] - Update passenger information" << std::endl
+		<< "[6] - Remove passenger from list" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -89,6 +90,9 @@ void Reservation::EvaluateAndRun(char STDIN)
 		break;
 	case '5':
 		UpdatePassengerInformation();
+		break;
+	case '6':
+		delete_node();
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
@@ -141,14 +145,11 @@ void Reservation::ClearBuffer()
 
 
 
-// Print Passenger List
+// Reservation Constructor
 // ===============================================
 // Documentation:
-//	This function will output all of the information within the link list.
-// -----------------------------------------------
-// Parameters:
-//	head [Node*]
-//		This will take any valid link list.
+//	This function will initialize the head pointer to NULL.
+
 // ===============================================
 
 Reservation::Reservation()
@@ -166,8 +167,9 @@ Reservation::Reservation()
 // ===============================================
 void Reservation::Print_Passenger_List()
 {
+	Node *temp = head;
 	// If head is empty, present an error message and leave this function.
-	if (head == NULL)
+	if (temp == NULL)
 	{
 		std::cout << "<!> ERROR <!>: No entries within the list are present!" << std::endl
 			<< "Nothing to print nor report!  Please generate or create a new list." << std::endl;
@@ -176,16 +178,16 @@ void Reservation::Print_Passenger_List()
 
 
 	// Output the available list with the information required.
-	while (head != NULL)
+	while (temp != NULL)
 	{
-		std::cout << "Passenger ID: " << head->passengerID << std::endl
-			<< "Passenger Name: " << head->nameLast << ", " << head->nameFirst << std::endl
-			<< "Telephone Number: " << head->telephoneNum << std::endl
-			<< "Reservation Number: " << head->reservationNum << std::endl
-			<< "Seat on the plane: " << head->seatNum << std::endl
-			<< "Preferred Meal Plan: " << head->mealType << std::endl;
+		std::cout << "Passenger ID: " << temp->passengerID << std::endl
+			<< "Passenger Name: " << temp->nameLast << ", " << temp->nameFirst << std::endl
+			<< "Telephone Number: " << temp->telephoneNum << std::endl
+			<< "Reservation Number: " << temp->reservationNum << std::endl
+			<< "Seat on the plane: " << temp->seatNum << std::endl
+			<< "Preferred Meal Plan: " << temp->mealType << std::endl;
 
-		head = head->next;	// Move to the next node
+		temp = temp->next;	// Move to the next node
 	} // while
 } // Print_Passenger_List()
 
@@ -205,6 +207,7 @@ void Reservation::Print_Passenger_List()
 // ===============================================
 void Reservation::InsertNode(Node* newEntry)
 {
+	
 	if (head == NULL)			// if the current list contains no entries
 		head = newEntry;		//  then immediately add the temp entry to the list.
 	else
@@ -1104,26 +1107,56 @@ void Reservation::FindPrintPassenger()
 // Documentation:
 // This code allows the user to search for a passenger in the list then remove them from said list.
 // Logic:
-// This code is a modified version of the Search function that only searches for passenger IDs.
-// When it finds the ID it will delete the Node the ID is connected to.
+// This code is a modified version of the Search function that only searches for passenger Last names.
+// When it finds the Last Name it will delete the Node the Last Name is connected to.
 // ========================================================================================================
 
 
-bool Reservation::delete_node(Node** pre, int passengerIDKey)
-{       
-	if (head == NULL){   //makes sure there is something in head
+bool Reservation::delete_node()
+{
+		Node* pre = head;
+		Node* temp = head;
+		std::string captureString;
+				
+				
+		if (temp == NULL){   //makes sure there is something in head
+				std::cout << "The list is empty." <<std::endl;
                 return false;
-
-	}
-        while(head != NULL){
-                if((head)->passengerID = passengerIDKey){ // searches the passenger IDs
-                        (*pre)->next = (head)->next; // moves to the next ID
-                        delete head; // deletes the node if the node is the node that needs to be deleted
-                        return true;
+        }
+		std::cout << "Which passenger would you like to delete?:" << std::endl;
+		
+		captureString = UserInput_String(false);	//captures user inputted last name
+		
+		if (Search(&temp,		// Our list to be scanned and processed.
+				&pre,		// the node before the desired node will be stored here
+				0,					// Search by last name
+				captureString))	{	// String to search
+			
+			if(head == temp){
+				head = temp->next;
+			}
+			pre->next = temp->next; // sets the prev node in the list to point to the node after the node
+									   // that will be deleted
+            delete temp; // deletes the node if the node is the node that needs to be deleted
+            
+            std::cout << "The passenger was removed from the list" << std::endl;
+            return true;
+		}else{
+			std::cout <<"The passenger was not found" <<std::endl;
+			return false;
 		}
-	}
+		
+/*        while(temp != NULL){
+                if((temp)->passengerID = passengerIDKey){ // searches the passenger IDs
+
+                        return true;
+				}else{
+					temp = temp->next;	
+				}
+		}
 
                 return false; // If the ID typed in does not exist
+                */
 }
 
 

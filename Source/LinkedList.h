@@ -63,7 +63,7 @@ struct Reservation
 	void ManualCustomerAdd();
 	bool Search(Node**, Node**, int, std::string, int);
 	void FindPrintPassenger();
-	bool delete_node(Node**, int);
+	bool delete_node();
 	void UpdatePassengerInformation();
 };
 #endif // !__LinkedList__
