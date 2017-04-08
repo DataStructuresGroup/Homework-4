@@ -26,10 +26,6 @@
 #pragma endregion
 
 
-#pragma region Prototypes
-
-#pragma endregion
-
 
 // Main [Entry Point]
 // ===============================================
@@ -54,7 +50,3 @@ int main()
 
 	return 0;					// Terminate
 } // main()
-
-
-
-

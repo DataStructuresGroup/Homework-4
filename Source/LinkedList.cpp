@@ -1427,6 +1427,4 @@ void Reservation::CheckInPassenger()
 			std::cout << "This passenger is not in the list." <<std::endl;
 		}
 }//CheckInPassenger
-
-
 #endif // !__LinkList__Implementation__
