@@ -73,5 +73,6 @@ struct Reservation
 	bool delete_node();
 	void UpdatePassengerInformation();
 	void CheckInPassenger();
+	void Print_CheckIn_List();
 };
 #endif // !__LinkedList__

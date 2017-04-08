@@ -56,6 +56,7 @@ void Reservation::MainMenu()
 		<< "[5] - Update passenger information" << std::endl
 		<< "[6] - Remove passenger from list" << std::endl
 		<< "[7] - Check in passenger" << std::endl
+		<< "[8] - Print check in list" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -102,6 +103,9 @@ void Reservation::EvaluateAndRun(char STDIN)
 		break;
 	case '7':	// Passenger Checking
 		CheckInPassenger();
+		break;
+	case '8':
+		Print_CheckIn_List();
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
@@ -1490,20 +1494,48 @@ void Reservation::CheckInPassenger()
 				
 		if (temp == NULL){   //makes sure there is something in head
 				std::cout << "The list is empty.  There are no passengers to check in" <<std::endl;
-        }
-		std::cout << "Which passenger would you like to Check in?  Enter their last name:" << std::endl;
+        }else{
+			std::cout << "Which passenger would you like to Check in?  Enter their last name:";
 		
-		captureString = UserInput_String(false);	//captures user inputted last name
+			captureString = UserInput_String(false);	//captures user inputted last name
 		
-		if (Search(&temp,		// Our list to be scanned and processed.
-				&nullityNode,		// the node before the desired node will be stored here
-				0,					// Search by last name
-				captureString))	{	// String to search
+			if (Search(&temp,		// Our list to be scanned and processed.
+					&nullityNode,		// the node before the desired node will be stored here
+					0,					// Search by last name
+					captureString))	{	// String to search
 				
-			temp->checkedIn = true;
-			std::cout << temp->nameFirst << " " << temp->nameLast << " has been checked in." << std::endl;
-		}else{
-			std::cout << "This passenger is not in the list." <<std::endl;
+				temp->checkedIn = true;
+				std::cout << temp->nameFirst << " " << temp->nameLast << " has been checked in." << std::endl;
+			}else{
+				std::cout << "This passenger is not in the list." <<std::endl;
+			}
 		}
 }//CheckInPassenger
+
+void Reservation::Print_CheckIn_List()
+{
+	int CheckedInCnt = 0;	//counts the number of passengers checked in
+	int NotCheckedInCnt = 0;	//counts the number of passengers not checked in
+	Node* temp = head;		//starts at the begginning of the list
+	
+	while(temp != NULL){
+	
+		//prints each passenger's name and a checked in prompt
+		std::cout << temp->nameFirst <<" " <<temp->nameLast << std::endl
+				  << "Checked In?:  ";
+	
+		//checks to see if each passenger is checked in			  
+		if(temp->checkedIn){
+			std::cout << "Yes" << std::endl << std::endl;	
+			CheckedInCnt++;	
+		}else{
+			std::cout << "No" << std::endl << std::endl;	
+			NotCheckedInCnt++;
+		}
+		temp = temp->next;
+	}
+	
+	std::cout<< std::endl << "There are " << CheckedInCnt << " Passengers CheckedIn." <<std::endl;
+	std::cout<< std::endl << "There are " << NotCheckedInCnt << " Passengers CheckedIn." <<std::endl;
+}	//Print Check In List
 #endif // !__LinkList__Implementation__
