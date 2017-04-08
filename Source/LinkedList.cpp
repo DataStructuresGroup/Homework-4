@@ -157,13 +157,14 @@ void Reservation::ClearBuffer()
 // ===============================================
 // Documentation:
 //	This function will initialize the head pointer to NULL.
-
 // ===============================================
-
 Reservation::Reservation()
 {
 	head = NULL;	
 };
+
+
+
 // Print Passenger List
 // ===============================================
 // Documentation:
@@ -1103,7 +1104,6 @@ void Reservation::FindPrintPassenger()
 
 
 
-
 // Cancel Reservation
 // =====================================================================================================
 // Documentation:
@@ -1112,8 +1112,6 @@ void Reservation::FindPrintPassenger()
 // This code is a modified version of the Search function that only searches for passenger Last names.
 // When it finds the Last Name it will delete the Node the Last Name is connected to.
 // ========================================================================================================
-
-
 bool Reservation::delete_node()
 {
 		Node* pre = head;
@@ -1388,6 +1386,7 @@ void Reservation::UpdatePassengerInformation()
 		}
 	} while (badInput);
 } // UpdatePassengerInformation()
+
 
 
 // Check In Passenger
