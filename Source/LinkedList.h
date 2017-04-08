@@ -1,8 +1,8 @@
-
-// This merely holds the LinkedList struct.  The related functions can be located at:
-//  LinkedList.cpp.
 #ifndef __LinkedList__
 #define __LinkedList__
+// This merely holds the LinkedList struct.  The related functions can be located at:
+//  LinkedList.cpp.
+
 
 #pragma region Inclusions
 // This is a temporary solution for now, this inclusion must be resolved before final submission!
