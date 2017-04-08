@@ -93,13 +93,13 @@ void Reservation::EvaluateAndRun(char STDIN)
 	case '4':	// Search for passenger
 		FindPrintPassenger();
 		break;
-	case '5':
+	case '5':	// Update passenger information
 		UpdatePassengerInformation();
 		break;
-	case '6':
+	case '6':	// Thrash passenger node
 		delete_node();
 		break;
-	case '7':
+	case '7':	// Passenger Checking
 		CheckInPassenger();
 		break;
 	case 'X':	// Quietly pass through; exit
