@@ -8,6 +8,7 @@
 #include <cstring>			// Used for the 'NULL' keyword, despite that it
 							//  is '0' or 'OL', but keep this for convention
 							//  sakes.
+#include <cstdlib>
 #include "LinkedList.h"		// Implementation for Link List.
 #pragma endregion
 
@@ -1393,7 +1394,9 @@ void Reservation::UpdatePassengerInformation()
 	// =========================================================================
 	// TARGET FOUND
 
-
+	do
+	{
+		
 	// What does the end-user want to update?
 	std::cout << "Information to Update:" << std::endl
 		<< "-----------------------" << std::endl
@@ -1404,9 +1407,9 @@ void Reservation::UpdatePassengerInformation()
 		<< " 0) Exit" << std::endl
 		<< std::endl;
 
+
 	// Get the user's input and evaluate it
-	do
-	{
+
 		switch (UserInput_Number())
 		{
 		case 1:				// Update telephone
@@ -1437,13 +1440,22 @@ void Reservation::UpdatePassengerInformation()
 			badInput = false;
 			break;
 		case 4:				// Seat Number
-			// Let the user know of the current value
-			std::cout << "Current seat number: " << temp->seatNum << std::endl;
-			// Allow the user to update that specific field:
-			std::cout << "Enter a new value: ";
-			temp->seatNum = UserInput_Number(false);
-
-			badInput = false;
+				int newSeatNum;
+				// Let the user know of the current value
+				std::cout << "Current seat number: " << temp->seatNum << std::endl;
+				// Allow the user to update that specific field:
+				std::cout << "Enter a new value: ";
+				
+				newSeatNum = UserInput_Number(false);		//gathers user input
+				
+				if(GetSeatAvailable(newSeatNum) != -255)	//checks to make sure seat is not taken
+				{
+					temp->seatNum = newSeatNum;	 	//changes seat number if it is not taken
+						badInput = false;			
+				}else{
+					std::cout<< std::endl << "Seat already taken!" << std::endl;
+					badInput = true;
+				}
 			break;
 		case 0:				// Exit; silently leave this function
 			badInput = false;
@@ -1453,6 +1465,8 @@ void Reservation::UpdatePassengerInformation()
 			badInput = true;
 			break;
 		}
+		
+		std::cout << std::endl;
 	} while (badInput);
 } // UpdatePassengerInformation()
 
