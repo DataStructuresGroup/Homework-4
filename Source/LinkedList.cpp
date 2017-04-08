@@ -75,7 +75,9 @@ void Reservation::MainMenu()
 // ===============================================
 void Reservation::EvaluateAndRun(char STDIN)
 {
-	Node* nullityNode = NULL;			// Because this function requires
+	Node* nullityNode = NULL;			// If the user chooses option '3', then
+										// this pointer will be available as
+										// the Print_Passenger_List() function requires
 										// a node datatype, we will send
 										// an empty node but will not be
 										// used during the execution.
