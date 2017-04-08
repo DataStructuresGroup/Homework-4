@@ -316,23 +316,45 @@ void Reservation::CreateNewNode(std::string nameFirst, std::string nameLast, int
 // ===============================================
 int Reservation::Autofill_List_Numbers(int key)
 {
+	// Initializations
+	// -------------------------
+	// We will be using these as a way to assure that all values are unique - dynamically at runtime.
+	// Best approach?  No.  Best on performance?  Absolutely not - at least if worst case occurs.
+	int newRandomValue;			// This will be used to inspect the rand() value is unique
+	bool uniqueFound;			// Will be used in cooperation with the loops.
+	Node* temp = head;			// The list that we will be searching
+	Node* nullityNode = NULL;	// A temporary list that wont be used, but required for the search() function.
+	// -------------------------
+
 	// Determine the requested type to return
 	switch (key)
 	{
-	case 0:
-		// Passenger ID
-		return rand() % 9999 + 1;
+	case 0:			// Passenger ID
+		do			// Keep scanning until we find unique key
+		{			// It is possible for processing lag phenomenon
+			newRandomValue = rand() % 9999 + 1;
+			uniqueFound = Search(&temp, &nullityNode, 2, " ", newRandomValue) ? false : true;
+		} while (!uniqueFound);
+		return newRandomValue;	// Return the unique key
 		break;
-	case 1:
-		// Reservation Number
-		return rand() % 999 + 100;
+	case 1:			// Reservation Number
+		do			// Keep scanning until we find unique key
+		{			// It is possible for processing lag phenomenon
+			newRandomValue = rand() % 999 + 100;
+			uniqueFound = Search(&temp, &nullityNode, 3, " ", newRandomValue) ? false : true;
+		} while (!uniqueFound);
+		return newRandomValue;	// Return the unique key
 		break;
-	case 2:
-		// Telephone Numbers
-		return rand() % 8999999999 + 1000000000;
+	case 2:			// Telephone Numbers
+		do			// Keep scanning until we find unique key
+		{			// It is possible for processing lag phenomenon
+			newRandomValue = rand() % 8999999999 + 1000000000;
+			uniqueFound = Search(&temp, &nullityNode, 4, " ", newRandomValue) ? false : true;
+		} while (!uniqueFound);
+		return newRandomValue;	// Return the unique key
 		break;
 	default:
-		// Error
+		// Error; access violation occurred.
 		return -255;
 		break;
 	} // switch
@@ -395,7 +417,22 @@ std::string Reservation::Autofill_List_MealChoice()
 // ===============================================
 int Reservation::GetSeatAvailable()
 {
-	return rand() % 100 + 1;
+	// Initializations
+	// -------------------------
+	// We will be using these as a way to assure that all values are unique - dynamically at runtime.
+	// Best approach?  No.  Best on performance?  Absolutely not - at least if worst case occurs.
+	int newRandomValue;			// This will be used to inspect the rand() value is unique
+	bool uniqueFound;			// Will be used in cooperation with the loops.
+	Node* temp = head;			// The list that we will be searching
+	Node* nullityNode = NULL;	// A temporary list that wont be used, but required for the search() function.
+	// -------------------------
+
+	do			// Keep scanning until we find unique key
+	{			// It is possible for processing lag phenomenon
+		newRandomValue = rand() % 100 + 1;
+		uniqueFound = Search(&temp, &nullityNode, 5, " ", newRandomValue) ? false : true;
+	} while (!uniqueFound);
+	return newRandomValue;	// Return the unique key
 } // GetSeatAvailable()
 
 
