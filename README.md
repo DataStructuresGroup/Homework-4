@@ -14,7 +14,7 @@ Assume the Blue-Sky airlines use a linked list to maintain records for all passe
 | Done   | Print passenger list   | Prints all passengers information. |
 | Pending| Produce reports        | Produces the menu report and check-in report. |
 | Done   | Exit                   | Quits the program |
-| Pending| Unqiue ID's            | Passenger ID, seat number, and reservation numbers are all unique |
+| Done   | Unqiue ID's            | Passenger ID, seat number, and reservation numbers are all unique |
 | Pending| Sort list              | Sort the passenger list alpabetically |
 | Pending| Documentation          | All documentation required for CS3003 standards and submission policies |
 | Pending| Final Submission Ready | Ready for the final submission |
