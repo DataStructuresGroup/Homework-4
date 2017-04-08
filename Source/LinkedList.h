@@ -29,6 +29,7 @@ struct Node
 	int telephoneNum;			// Holds the passenger's preferred phone number.
 	int seatNum;				// Holds the passenger's seat number
 	std::string mealType;		// What meal does the passenger want during the flight?
+	bool checkedIn;				// Whether or not the passenger has checked in for the flight.
 
 	//----
 
@@ -65,5 +66,6 @@ struct Reservation
 	void FindPrintPassenger();
 	bool delete_node();
 	void UpdatePassengerInformation();
+	void CheckInPassenger();
 };
 #endif // !__LinkedList__

@@ -56,6 +56,7 @@ void Reservation::MainMenu()
 		<< "[4] - Search for a passenger" << std::endl
 		<< "[5] - Update passenger information" << std::endl
 		<< "[6] - Remove passenger from list" << std::endl
+		<< "[7] - Check in passenger" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -93,6 +94,9 @@ void Reservation::EvaluateAndRun(char STDIN)
 		break;
 	case '6':
 		delete_node();
+		break;
+	case '7':
+		CheckInPassenger();
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
@@ -260,6 +264,7 @@ void Reservation::CreateNewNode(std::string nameFirst, std::string nameLast, int
 	newEntry->telephoneNum = telephoneNum;
 	newEntry->seatNum = seatNum;
 	newEntry->mealType = mealType;
+	newEntry->checkedIn = false;
 
 	newEntry->next = NULL;
 	// Import the data into the primary list
@@ -1386,4 +1391,42 @@ void Reservation::UpdatePassengerInformation()
 		}
 	} while (badInput);
 } // UpdatePassengerInformation()
+
+
+// Check In Passenger
+// ===============================================
+// Documentation:
+//	This function will search for a user inputed passenger in a list
+//  and change the passengers status to checked in if he/she is found.
+// -----------------------------------------------
+// Output:
+//	changes passenger's status to checked in or says passenger not found.
+// ===============================================
+void Reservation::CheckInPassenger()
+{
+		Node* nullityNode = NULL;
+		Node* temp = head;
+		std::string captureString;
+				
+				
+		if (temp == NULL){   //makes sure there is something in head
+				std::cout << "The list is empty.  There are no passengers to check in" <<std::endl;
+        }
+		std::cout << "Which passenger would you like to Check in?  Enter their last name:" << std::endl;
+		
+		captureString = UserInput_String(false);	//captures user inputted last name
+		
+		if (Search(&temp,		// Our list to be scanned and processed.
+				&nullityNode,		// the node before the desired node will be stored here
+				0,					// Search by last name
+				captureString))	{	// String to search
+				
+			temp->checkedIn = true;
+			std::cout << temp->nameFirst << " " << temp->nameLast << " has been checked in." << std::endl;
+		}else{
+			std::cout << "This passenger is not in the list." <<std::endl;
+		}
+}//CheckInPassenger
+
+
 #endif // !__LinkList__Implementation__
