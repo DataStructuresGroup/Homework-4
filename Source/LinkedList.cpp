@@ -759,8 +759,20 @@ int Reservation::UserInput_Number(bool UsePrompt = true)
 		std::cout << ">>>>> ";	// The python'ish prompt
 
 	std::cin >> userInput;		// Capture the input
+	
+	while(!std::cin)		//ensures user inputed number is an integer
+	{
+		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+		std::cout << "bad input, please enter again." << std::flush << std::endl;
+		if (UsePrompt)
+			std::cout << ">>>>> ";	// The python'ish prompt
+			
+		std::cin >> userInput;
 
-	return userInput;			// Return the value.
+	}
+		return userInput;			// Return the value.
+
 } // UserInput_Number()
 
 
