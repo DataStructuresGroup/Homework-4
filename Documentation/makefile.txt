@@ -1,2 +1,0 @@
- LList:  LinkedListMain.cpp LinkedList.h LinkedListFunctions.cpp
-        c++ -o LList LinkedListMain.cpp LinkedList.h -I.
