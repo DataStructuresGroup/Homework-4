@@ -22,7 +22,7 @@
 // Project URL: 	https://github.com/DataStructuresGroup/Homework-4
 //		
 //
-// Notes:		Visual Basic 2015 [.NET] and MinGW
+// Notes:		Visual Basic 2015 [.NET], c++ or g++ on ADA.
 // Exit Codes:
 //		0 = Successful operation
 //		!0 = Errors; check Operating System ExitCode definitions
