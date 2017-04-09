@@ -51,9 +51,6 @@ int main()
 	Reservation BSA;
 	
 	
-	if(BSA.Alphebetize("peadtb", "peadta")){std::cout << "WEEEEEEE!" << std::endl;}
-	
-	
 	char userInput;				// This will be used for selected from the main menu.
 
 	BSA.Instructions();				// Provide instructions to the user via terminal buffer.
