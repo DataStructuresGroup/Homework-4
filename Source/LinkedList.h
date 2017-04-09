@@ -1,7 +1,6 @@
+// Implementation can be found at 'LinkedList.cpp'.
 #ifndef __LinkedList__
 #define __LinkedList__
-// This merely holds the LinkedList struct.  The related functions can be located at:
-//  LinkedList.cpp.
 
 
 #pragma region Inclusions
@@ -12,8 +11,10 @@
 
 
 // Node Methodology:
+//      {Reservation}
 // ======================
 // |     DATA FIELDS    |
+// |       {Node}       |
 // | ------------------ |
 // |     Next Node -->  |
 // ======================
