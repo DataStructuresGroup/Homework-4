@@ -8,7 +8,19 @@
 // Due Date:		10.April.2017
 // Instructor:		Dr. Zhao
 // Description:		Simulation of Airline Reservation System
-//					<MORE DETAILS HERE>
+//			This program tries at best to simulate an aircraft managerial system in
+//			clients are into the program by using 'link list'.  With this, the end-user
+//			is capable of managing the clients by either: adding new clients, updating
+//			the clients information, thrashing clients, and sorting clients alphabetically.
+//			This program is also capable of producing reports of who checked in, all
+//			clients enrolled, and even what meal inventory.
+//			This program is rather beefy than most previous submissions and there is a lot
+//			going on as well.  There is possible questionable segments or inefficient
+//			segments, but the only thing that we truely cared about was the Apple motto -
+//			'it just works'.
+//			Big thanks to the team for pulling this off and at a short time too!
+// Project URL: 	https://github.com/DataStructuresGroup/Homework-4
+//		
 //
 // Notes:		Visual Basic 2015 [.NET] and MinGW
 // Exit Codes:
