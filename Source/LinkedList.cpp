@@ -620,7 +620,7 @@ void Reservation::Autofill_List()
 		case 13:
 			CreateNewNode(					// primary list
 						"Ashia",					// First Name
-						"Bäddan",					// Last Name
+						"Banddan",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
 						Autofill_List_Numbers(1),	// Reservation Num
 						Autofill_List_Numbers(2),	// Telephone Num
@@ -1640,13 +1640,12 @@ void Reservation::Print_Meal_List()
 // ===============================================
 void Reservation::Sort()
 {	
-
-
 	if(head != NULL)
 	{
 			Node* current = head;
 			Node* challenger = head;
 			Node* pre = head;	
+			Node* challengePre = head;
 			bool swap = false;
 			std::string currentName;
 			std::string challengerName;
@@ -1655,13 +1654,15 @@ void Reservation::Sort()
 			{
 				while(challenger->next != NULL)
 				{
+					challengePre = challenger;
 					challenger = challenger->next;
 					
 					currentName = current->nameLast;
 					challengerName = challenger->nameLast;
 					
 					if(Alphebetize(currentName, challengerName)){
-						if(head == current){
+						challengePre->next = challenger->next;
+						if(current == head){
 							challenger->next = current;
 							head = challenger;	
 						}else{
@@ -1678,8 +1679,9 @@ void Reservation::Sort()
 				{
 					pre = current;
 					current = current->next;
-					swap = false;
+					challenger = current;
 				}
+				swap = false;
 			}//outer while
 		}//outer if
 }//sort
