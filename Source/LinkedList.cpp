@@ -753,7 +753,8 @@ std::string Reservation::UserInput_String(bool UsePrompt = true)
 // ===============================================
 int Reservation::UserInput_Number(bool UsePrompt = true)
 {
-	int userInput;				// Use this to capture the STDIN
+	int userInput;
+	int save;				// Use this to capture the STDIN
 
 	if (UsePrompt)
 		std::cout << ">>>>> ";	// The python'ish prompt
@@ -765,14 +766,15 @@ int Reservation::UserInput_Number(bool UsePrompt = true)
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
 		std::cout << "bad input, please enter again." << std::flush << std::endl;
-		if (UsePrompt)
-			std::cout << ">>>>> ";	// The python'ish prompt
+		
+		std::cout << ">>>>> ";	// The python'ish prompt
 			
 		std::cin >> userInput;
 
 	}
-	std::cin.clear();				//clears cin buffer
-	std::cin.ignore(INT_MAX, '\n');
+	//save = userInput;
+//	std::cin.clear();				//clears cin buffer
+	//std::cin.ignore(INT_MAX, '\n');
 		return userInput;			// Return the value.
 
 } // UserInput_Number()
