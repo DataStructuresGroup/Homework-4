@@ -1253,9 +1253,9 @@ bool Reservation::delete_node()
 				std::cout << "The list is empty." <<std::endl;
                 return false;
         }
-		std::cout << "Which passenger would you like to delete?:" << std::endl;
+		std::cout << "Which passenger would you like to delete? Enter their last name:  ";
 		
-		captureString = UserInput_String(false);	//captures user inputted last name
+		captureString = UserInput_String(false);	//captures user inputed last name
 		
 		if (Search(&temp,		// Our list to be scanned and processed.
 				&pre,		// the node before the desired node will be stored here
@@ -1276,17 +1276,6 @@ bool Reservation::delete_node()
 			return false;
 		}
 		
-/*        while(temp != NULL){
-                if((temp)->passengerID = passengerIDKey){ // searches the passenger IDs
-
-                        return true;
-				}else{
-					temp = temp->next;	
-				}
-		}
-
-                return false; // If the ID typed in does not exist
-                */
 }
 
 
