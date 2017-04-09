@@ -245,7 +245,15 @@ void Reservation::Print_Passenger_List(Node* listIndex, bool runOnce = false)
 // ===============================================
 void Reservation::InsertNode(Node* newEntry)
 {
-	
+	// Disallow any new entries if the plane is full.
+	if (PlaneSize <= ListSize())
+	{
+		std::cout << "<!> ERROR <!>: Unable to add new entry!" << std::endl
+			<< "The plane is currently full and we have yet to add seats on the wings." << std::endl
+			<< "Please consider deleting a passenger with no refunds." << std::endl;
+			return;
+	} // if
+
 	if (head == NULL)			// if the current list contains no entries
 		head = newEntry;		//  then immediately add the temp entry to the list.
 	else
@@ -620,7 +628,7 @@ void Reservation::Autofill_List()
 		case 13:
 			CreateNewNode(					// primary list
 						"Ashia",					// First Name
-						"Banddan",					// Last Name
+						"Baeddan",					// Last Name
 						Autofill_List_Numbers(0),	// Passenger ID
 						Autofill_List_Numbers(1),	// Reservation Num
 						Autofill_List_Numbers(2),	// Telephone Num
@@ -1050,6 +1058,32 @@ bool Reservation::Search(Node** cur, Node** pre, int searchMode, std::string sea
 	// Unable to find a node with that specific key and data.
 	return false;
 } // Search()
+
+
+
+// List Size
+// ===============================================
+// Documentation:
+//	This function will scan through the entire list and evaluate its
+//	total size, thus providing with the entire list size allocated.
+// -----------------------------------------------
+// Output:
+//	List Size
+//		Return the list size
+// ===============================================
+int Reservation::ListSize()
+{
+	Node* temp = head;		// Directly copy the address of the 'head' in which
+							// it will be evaluated.  We will not do this directly
+							// with the primary list.
+	int counter = 0;		// This will retain a count of how many nodes exists within
+							// the list.
+
+	for (; temp != NULL; temp = temp->next)
+		counter++;
+
+	return counter;			// Return the size to the calling function
+} // ListSize()
 
 
 
