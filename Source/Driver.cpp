@@ -36,15 +36,8 @@
 #include <stdlib.h>			// Used for the rand() function
 #include <time.h>			// Used for the srand() funtion
 #include "LinkedList.h"		// Link List header; containing the link list methodology.
-
-// DEPRECATED [VS LNK2005 <!>]
- #include "LinkedList.cpp"	// Implementations for emulating the Link List behaviors and procedures.
-								// I have commented this out as I am hitting LNK2005 issues with this statement.
-								//  It seems with the OOP merge, the LNK behavior has changed.  With that
-								//  I have commented this out so I can compile this project.  If anyone else
-								//  depends on this one call, please let me know and I'll try to work around
-								//  the issue.
-// ----
+#include "LinkedList.cpp"	// Implementations for emulating the Link List behaviors and procedures.
+								// Comment this out for those using Visual Studio.
 #pragma endregion
 
 
