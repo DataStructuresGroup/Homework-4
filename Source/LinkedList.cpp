@@ -1634,35 +1634,59 @@ void Reservation::Print_Meal_List()
 // ===============================================
 // Documentation:
 //	This function will put a passenger list in alphebetical order by last name
+//
+//  it does this by first checking each node against the first node.  if a node that
+//  comes alphabetically before the first node is found, the function places that 
+//  node just before the first node.  Then the process begins again with the new first
+//  node.  When no nodes are found that come alphabetically before the first node,
+//  the node that other nodes are compared to is moved to the second node, and so on
+//  until the node other nodes are compared to is the last node in the list.
 // -----------------------------------------------
 // Output:
 //	Outputs a list sorted by last name.
 // ===============================================
 void Reservation::Sort()
 {	
-	if(head != NULL)
+	if(head != NULL)		//to make sure list is not empty
 	{
-			Node* current = head;
-			Node* challenger = head;
-			Node* pre = head;	
-			Node* challengePre = head;
-			bool swap = false;
-			std::string currentName;
-			std::string challengerName;
+			Node* current = head;		//this pointer contains the node being challenged
+			Node* challenger = head;	//this pointer contains the node challenging the 
+										//current pointer for alphabetically first position
+										
+			Node* pre = head;			//this pointer is used to place the challenger node before 
+										//the current node
+										
+			Node* challengePre = head;	//this pointer is used to remove the challenger pointer from its old spot
+			
+			bool swap = false;			//this variable is used to indicate that a swap was made\
+			
+			std::string currentName;	//holds the current node's last name
+			
+			std::string challengerName;	//holds the challenger node's last name
 								
-			while(current != NULL)
+			while(current != NULL)		//iterates through until it reaches the end of the list, or
+										//until a node that comes alphabetically before it is found
 			{
-				while(challenger->next != NULL)
+				while(challenger->next != NULL)		//iterates through all nodes after the current node
+													//stops when it reaches the end of the list, or when 
+													//it finds a node that comes alphabetically before the 
+													//current node
 				{
 					challengePre = challenger;
-					challenger = challenger->next;
+					challenger = challenger->next;	//incrementing the challenger node to the next node 
+													//in the list to be checked
 					
-					currentName = current->nameLast;
+					currentName = current->nameLast;			//setting the last name strings to be checked
 					challengerName = challenger->nameLast;
 					
-					if(Alphebetize(currentName, challengerName)){
+					if(Alphebetize(currentName, challengerName)){		//checking to see which node comes 
+																		//alphabetically first by last name
+																		//if the challenger comes first,
+																		//it is placed just before the current
+																		//node in the list, and the process is restarted
+																		//for the new current node
 						challengePre->next = challenger->next;
-						if(current == head){
+						if(current == head){		//for if the current node is at the head of the list
 							challenger->next = current;
 							head = challenger;	
 						}else{
@@ -1670,12 +1694,13 @@ void Reservation::Sort()
 							challenger->next = current;	
 						}
 						current = challenger;
-						swap = true;
+						swap = true;		//indicates a swap was made
 						break;
 					}
 				}//inner while
 				
-				if(!swap)
+				if(!swap)		//if no swaps were made, the current node is moved to the next node
+								//in the list.
 				{
 					pre = current;
 					current = current->next;
@@ -1683,7 +1708,10 @@ void Reservation::Sort()
 				}
 				swap = false;
 			}//outer while
-		}//outer if
+			
+	}else{  //outer if
+		std::cout << "The list is empty." << std::endl;
+	}
 }//sort
 
 
@@ -1705,20 +1733,41 @@ void Reservation::Sort()
 // ===============================================
 bool Reservation::Alphebetize(std::string current, std::string challenger)
 {
-	if(current.length() <= challenger.length())
+	if(current.length() <= challenger.length())		//checks to see which string is longer
+													//uses for loop to the shorter strings length
+													//this allows the function to show that the shorter
+													//word comes alphabetically first (i.e. Al, vs Ale)
 	{
 		for(int i = 0; i <current.length(); i++)
 		{
-			if(int(tolower(current.at(i))) < int(tolower(challenger.at(i))))
-			{
-				return false;	
-			}else if(int(tolower(current.at(i))) > int(tolower(challenger.at(i)))){
-				return true;	  		
+			if(int(tolower(current.at(i))) < int(tolower(challenger.at(i))))		//this statement analyzes 
+			{							//the current character and challenger character at the current
+										//iteration of the for loop.  It converts the letters
+										//to their ANSII equivalent values and analyzes
+										//those to see which one is larger.  capitol letters will be 
+										//converted to lowercase letters.  The other if statements basically 
+										//follow the same concept as this one
+			
+				return false;	//if the current character is alphabetically before the challenger character,
+								//the function returns false to note that the current string is alphabetically 
+								//first		
+			}else if(int(tolower(current.at(i))) > int(tolower(challenger.at(i)))){	
+																					
+				return true;	 //if the current character being analyzed is alphabetically after the 
+								 //challenger character being analyzed, the function returns true to note that
+								 //the current string is alphabetically after the challenger string		
 			}
 		}
-		return false;
-	}else{
-		for(int i = 0; i < challenger.length(); i++)
+		return false;		//returns false if all letters analyzed where the same.  This means that either
+							//the challenger string is longer than the current string (i.e al vs ale), or 
+							//both strings are the same in which case no action is taken.
+							
+							
+	}else{		//for if the challenger string is shorter than the current string.  same concepts as above, 
+				//accept for when current string is the same as challenger string up to the last characters
+				//analyzed.  In this case the challenger string is alphabetically first since it is shorter
+				//(i.e. ale vs al).
+		for(int i = 0; i < challenger.length(); i++)		
 		{
 			if(int(tolower(current.at(i))) < int(tolower(challenger.at(i))))
 			{
