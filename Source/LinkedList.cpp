@@ -1425,12 +1425,14 @@ void Reservation::UpdatePassengerInformation()
 	// If the passenger was not found, leave this function.
 	if (!targetFound)
 	{
-		system("PAUSE");		// Allow the end-user to view the message that the passenger
-								// was not found during the scan.
-								// WARNING: __WINDOWS_ONLY__
-								// ANYONE USING ADA OR LINUX, PLEASE COMMENT THIS STATEMENT!
-								// With this statement, I am using an extCMD in Windows
-								// via the Command Shell.
+		// Allow the end-user to view the message that the passenger
+		// was not found during the scan.
+		// ----
+		std::cout << "Press the enter or return key to continue. . ." << std::endl;		// This is alternative version of 'system("PAUSE")'
+		std::cin.ignore();																// and will work outside of Windows.
+		std::cin.ignore();	// avoid input ghosting?
+		// ----
+
 		return;
 	}
 	
