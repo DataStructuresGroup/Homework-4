@@ -16,7 +16,7 @@
 //			clients enrolled, and even what meal inventory.
 //			This program is rather beefy than most previous submissions and there is a lot
 //			going on as well.  There is possible questionable segments or inefficient
-//			segments, but the only thing that we truely cared about was the Apple motto -
+//			segments, but the only thing that we truly cared about was the Apple motto -
 //			'it just works'.
 //			Big thanks to the team for pulling this off and at a short time too!
 // Project URL: 	https://github.com/DataStructuresGroup/Homework-4
@@ -34,7 +34,7 @@
 #pragma region Inclusions
 #include <iostream>			// Used for Input and Output
 #include <stdlib.h>			// Used for the rand() function
-#include <time.h>			// Used for the srand() funtion
+#include <time.h>			// Used for the srand() function
 #include "LinkedList.h"		// Link List header; containing the link list methodology.
 #include "LinkedList.cpp"	// Implementations for emulating the Link List behaviors and procedures.
 								// Comment this out for those using Visual Studio.

@@ -29,7 +29,7 @@ void Reservation::Instructions()
 		<< "it is possible to generate a reasonable size customer list and perform" << std::endl
 		<< "maintenance as needed.  Such maintenance could be removing a customer," << std::endl
 		<< "updating the customer's information, update reservations, change seats," << std::endl
-		<< "and even revise customer's inflight meals!  Use the menu to navigate" << std::endl
+		<< "and even revise customer's in-flight meals!  Use the menu to navigate" << std::endl
 		<< "through this program and try to crash it!  I dare you!" << std::endl
 		<< "Looks like I picked the wrong week to quit sniffing glue. -Steve McCroskey"  // reference: https://youtu.be/VmW-ScmGRMA
 		<< std::endl << std::endl;
@@ -141,7 +141,7 @@ void Reservation::EvaluateAndRun(char STDIN)
 // ===============================================
 char Reservation::PromptUser_MainMenu()
 {
-	char inputCapture = '-';		// If incase - to avoid bugs, use a default value.
+	char inputCapture = '-';		// If in case - to avoid bugs, use a default value.
 	std::cout << ">>>>> ";			// The python'ish prompt
 	std::cin >> inputCapture;		// Capture the input
 	
@@ -811,7 +811,7 @@ std::string Reservation::ManualCustomerAdd_MealChoice()
 	// We will use this to store the user's choice and then process it later.
 	int userChoice;
 
-	// Provide the inflight meal list:
+	// Provide the in-flight meal list:
 	std::cout << "Select a number: " << std::endl
 		<< " 1) Monkey Brains" << std::endl
 		<< " 2) Tuna Eyeballs" << std::endl
@@ -900,7 +900,7 @@ void Reservation::ManualCustomerAdd()
 	std::cout << std::endl;
 
 	// Capture preferred meal:
-	std::cout << "Inflight meal choice: " << std::endl;
+	std::cout << "In-flight meal choice: " << std::endl;
 	stdinMealChoice = ManualCustomerAdd_MealChoice();
 	
 	// Ask the user about preferred seating
@@ -1425,7 +1425,7 @@ void Reservation::UpdatePassengerInformation()
 	// If the passenger was not found, leave this function.
 	if (!targetFound)
 	{
-		system("PAUSE");		// Allow the end-user to view the message that the pasenger
+		system("PAUSE");		// Allow the end-user to view the message that the passenger
 								// was not found during the scan.
 								// WARNING: __WINDOWS_ONLY__
 								// ANYONE USING ADA OR LINUX, PLEASE COMMENT THIS STATEMENT!
@@ -1574,7 +1574,7 @@ void Reservation::Print_CheckIn_List()
 {
 	int CheckedInCnt = 0;	//counts the number of passengers checked in
 	int NotCheckedInCnt = 0;	//counts the number of passengers not checked in
-	Node* temp = head;		//starts at the begginning of the list
+	Node* temp = head;		//starts at the beginning of the list
 	
 	while(temp != NULL){
 	
@@ -1667,7 +1667,7 @@ void Reservation::Print_Meal_List()
 // Sort list
 // ===============================================
 // Documentation:
-//	This function will put a passenger list in alphebetical order by last name
+//	This function will put a passenger list in alphabetical order by last name
 //
 //  it does this by first checking each node against the first node.  if a node that
 //  comes alphabetically before the first node is found, the function places that 
@@ -1751,19 +1751,19 @@ void Reservation::Sort()
 
 
 
-//Alphebetize
+//Alphabetize
 // ===============================================
 // Documentation:
 //	This function will decide which of two strings comes
-//  alphebetically first
+//  alphabetically first
 // -----------------------------------------------
 // Output:
-//	outputs true if the challenger string comes alphebetically
+//	outputs true if the challenger string comes alphabetically
 //  before the current string
 //------------------------------------------------
 //  Parameters:
 //  current and challenger hold strings that will be compared
-//  to determine which one comes alphebetically first
+//  to determine which one comes alphabetically first
 // ===============================================
 bool Reservation::Alphebetize(std::string current, std::string challenger)
 {
@@ -1814,5 +1814,5 @@ bool Reservation::Alphebetize(std::string current, std::string challenger)
 		return true;
 	}//outer else
 
-}//alphebetize
+}//Alphabetize
 #endif // !__LinkList__Implementation__
