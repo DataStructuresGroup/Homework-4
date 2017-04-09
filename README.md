@@ -12,7 +12,7 @@ Assume the Blue-Sky airlines use a linked list to maintain records for all passe
 | Done   | Search for a passenger | Search for a special passenger.  If the passenger is found, then shows passenger's information otherwise prints "Not found". |
 | Done   | Change a reservation   | Modify seat number and/or menu preference only.  __NOTE__: No seat number can be used more than once. |
 | Done   | Print passenger list   | Prints all passengers information. |
-| Pending| Produce reports        | Produces the menu report and check-in report. |
+| Done   | Produce reports        | Produces the menu report and check-in report. |
 | Done   | Exit                   | Quits the program |
 | Done   | Unqiue ID's            | Passenger ID, seat number, and reservation numbers are all unique |
 | Done   | Sort list              | Sort the passenger list alpabetically |
