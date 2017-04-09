@@ -771,6 +771,8 @@ int Reservation::UserInput_Number(bool UsePrompt = true)
 		std::cin >> userInput;
 
 	}
+	std::cin.clear();				//clears cin buffer
+	std::cin.ignore(INT_MAX, '\n');
 		return userInput;			// Return the value.
 
 } // UserInput_Number()
