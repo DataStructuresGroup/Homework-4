@@ -75,5 +75,7 @@ struct Reservation
 	void CheckInPassenger();
 	void Print_CheckIn_List();
 	void Print_Meal_List();
+	void Sort();
+	bool Alphebetize(std::string, std::string);
 };
 #endif // !__LinkedList__

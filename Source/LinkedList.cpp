@@ -58,6 +58,7 @@ void Reservation::MainMenu()
 		<< "[7] - Check in passenger" << std::endl
 		<< "[8] - Print check in report" << std::endl
 		<< "[9] - Print menu report" << std::endl
+		<< "[0] - Sort passenger list" << std::endl
 		<< "[X] - Exit" << std::endl << std::endl;
 } // MainMenu()
 
@@ -106,10 +107,13 @@ void Reservation::EvaluateAndRun(char STDIN)
 		CheckInPassenger();
 		break;
 	case '8':
-		Print_CheckIn_List();
+		Print_CheckIn_List();	//print check in report
 		break;
 	case '9':
-		Print_Meal_List();
+		Print_Meal_List();		//print meal choice report
+		break;
+	case '0':
+		Sort();		//sort list
 		break;
 	case 'X':	// Quietly pass through; exit
 		break;
@@ -140,7 +144,7 @@ char Reservation::PromptUser_MainMenu()
 	char inputCapture = '-';		// If incase - to avoid bugs, use a default value.
 	std::cout << ">>>>> ";			// The python'ish prompt
 	std::cin >> inputCapture;		// Capture the input
-
+	
 	return inputCapture;			// Return the value.
 } // PromptUser_MainMenu()
 
@@ -1480,6 +1484,8 @@ void Reservation::UpdatePassengerInformation()
 
 
 
+
+
 // Check In Passenger
 // ===============================================
 // Documentation:
@@ -1515,6 +1521,8 @@ void Reservation::CheckInPassenger()
 			}
 		}
 }//CheckInPassenger
+
+
 
 
 // Print Check In List
@@ -1554,6 +1562,9 @@ void Reservation::Print_CheckIn_List()
 	std::cout<< std::endl << "There are " << CheckedInCnt << " Passengers checked in." <<std::endl;
 	std::cout<< std::endl << "There are " << NotCheckedInCnt << " Passengers not checked in." <<std::endl;
 }	//Print Check In List
+
+
+
 
 // Print meal list
 // ===============================================
@@ -1617,4 +1628,106 @@ void Reservation::Print_Meal_List()
 	}
 			  
 }//print meal list
+
+
+// Sort list
+// ===============================================
+// Documentation:
+//	This function will put a passenger list in alphebetical order by last name
+// -----------------------------------------------
+// Output:
+//	Outputs a list sorted by last name.
+// ===============================================
+void Reservation::Sort()
+{	
+
+
+	if(head != NULL)
+	{
+			Node* current = head;
+			Node* challenger = head;
+			Node* pre = head;	
+			bool swap = false;
+			std::string currentName;
+			std::string challengerName;
+								
+			while(current != NULL)
+			{
+				while(challenger->next != NULL)
+				{
+					challenger = challenger->next;
+					
+					currentName = current->nameLast;
+					challengerName = challenger->nameLast;
+					
+					if(Alphebetize(currentName, challengerName)){
+						if(head == current){
+							challenger->next = current;
+							head = challenger;	
+						}else{
+							pre->next = challenger;
+							challenger->next = current;	
+						}
+						current = challenger;
+						swap = true;
+						break;
+					}
+				}//inner while
+				
+				if(!swap)
+				{
+					pre = current;
+					current = current->next;
+					swap = false;
+				}
+			}//outer while
+		}//outer if
+}//sort
+
+
+
+
+//Alphebetize
+// ===============================================
+// Documentation:
+//	This function will decide which of two strings comes
+//  alphebetically first
+// -----------------------------------------------
+// Output:
+//	outputs true if the challenger string comes alphebetically
+//  before the current string
+//------------------------------------------------
+//  Parameters:
+//  current and challenger hold strings that will be compared
+//  to determine which one comes alphebetically first
+// ===============================================
+bool Reservation::Alphebetize(std::string current, std::string challenger)
+{
+	if(current.length() <= challenger.length())
+	{
+		for(int i = 0; i <current.length(); i++)
+		{
+			if(int(tolower(current.at(i))) < int(tolower(challenger.at(i))))
+			{
+				return false;	
+			}else if(int(tolower(current.at(i))) > int(tolower(challenger.at(i)))){
+				return true;	  		
+			}
+		}
+		return false;
+	}else{
+		for(int i = 0; i < challenger.length(); i++)
+		{
+			if(int(tolower(current.at(i))) < int(tolower(challenger.at(i))))
+			{
+				return false;	
+			}else if(int(tolower(current.at(i))) > int(tolower(challenger.at(i)))){
+				return true;	  		
+			}		
+		}
+		
+		return true;
+	}//outer else
+
+}//alphebetize
 #endif // !__LinkList__Implementation__
