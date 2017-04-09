@@ -1715,7 +1715,7 @@ void Reservation::Sort()
 					currentName = current->nameLast;			//setting the last name strings to be checked
 					challengerName = challenger->nameLast;
 					
-					if(Alphebetize(currentName, challengerName)){		//checking to see which node comes 
+					if(Alphabetize(currentName, challengerName)){		//checking to see which node comes 
 																		//alphabetically first by last name
 																		//if the challenger comes first,
 																		//it is placed just before the current
@@ -1767,7 +1767,7 @@ void Reservation::Sort()
 //  current and challenger hold strings that will be compared
 //  to determine which one comes alphabetically first
 // ===============================================
-bool Reservation::Alphebetize(std::string current, std::string challenger)
+bool Reservation::Alphabetize(std::string current, std::string challenger)
 {
 	if(current.length() <= challenger.length())		//checks to see which string is longer
 													//uses for loop to the shorter strings length

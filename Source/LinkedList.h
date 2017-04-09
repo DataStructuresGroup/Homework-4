@@ -77,7 +77,7 @@ struct Reservation
 	void Print_CheckIn_List();
 	void Print_Meal_List();
 	void Sort();
-	bool Alphebetize(std::string, std::string);
+	bool Alphabetize(std::string, std::string);
 	int ListSize();						// Evaluates the entire size of the list.
 };
 #endif // !__LinkedList__
