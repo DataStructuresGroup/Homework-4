@@ -753,8 +753,7 @@ std::string Reservation::UserInput_String(bool UsePrompt = true)
 // ===============================================
 int Reservation::UserInput_Number(bool UsePrompt = true)
 {
-	int userInput;
-	int save;				// Use this to capture the STDIN
+	int userInput;				// Use this to capture the STDIN
 
 	if (UsePrompt)
 		std::cout << ">>>>> ";	// The python'ish prompt
@@ -772,9 +771,9 @@ int Reservation::UserInput_Number(bool UsePrompt = true)
 		std::cin >> userInput;
 
 	}
-	//save = userInput;
-//	std::cin.clear();				//clears cin buffer
-	//std::cin.ignore(INT_MAX, '\n');
+	
+	std::cin.clear();				//clears cin buffer
+	std::cin.ignore(INT_MAX, '\n');
 		return userInput;			// Return the value.
 
 } // UserInput_Number()
@@ -1266,9 +1265,9 @@ bool Reservation::delete_node()
 			
 			if(head == temp){
 				head = temp->next;
-			}
-			pre->next = temp->next; // sets the prev node in the list to point to the node after the node
-									   // that will be deleted
+			}else{
+				pre->next = temp->next; // sets the prev node in the list to point to the node after the node
+			}						   // that will be deleted
             delete temp; // deletes the node if the node is the node that needs to be deleted
             
             std::cout << "The passenger was removed from the list" << std::endl;
