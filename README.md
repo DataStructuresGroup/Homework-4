@@ -17,7 +17,7 @@ Assume the Blue-Sky airlines use a linked list to maintain records for all passe
 | Done   | Unqiue ID's            | Passenger ID, seat number, and reservation numbers are all unique |
 | Done   | Sort list              | Sort the passenger list alpabetically |
 | Done   | Documentation          | All documentation required for CS3003 standards and submission policies |
-| Pending| Final Submission Ready | Ready for the final submission |
+| 1 out of 2 | Final Submission Ready | Ready for the final submission |
 
 # Requirements
  1. You must use a linked list to store your costumer's information
