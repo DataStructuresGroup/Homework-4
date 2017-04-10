@@ -1,0 +1,44 @@
+Output key:
+    1) 3
+    2) 1
+    3) 3
+    4) 2
+    5) Clarence [optional first name]
+    6) Oveur    [optional last name]
+    7) 8456879  [optional telephone number]
+    8) 4        [optional meal choice]
+    9) n
+    10) 3
+    11) 0
+    12) 3
+    13) 2
+    14) Roger   [optional first name]
+    15) Murdock [optional last name]
+    16) 548976  [optional telephone number]
+    17) 1       [optional meal choice]
+    18) y
+    19) 91      [STRICT: _MUST_ USE OCCUPIED SEAT!]
+    20) y
+    21) 46      [STRICT: _MUST_ USE NON-OCCUPIED SEAT!]
+    22) 3
+    23) 0
+    24) 9
+    25) 8
+    26) 7
+    27) Ume     [optional last name from list]
+    28) 8
+    29) 4
+    30) 1       [optional search mode]
+    31) Ume     [optional last name from list]
+    32) 6
+    33) Ume     [optional last name from list]
+    34) 3
+    35) 5
+    36) 1
+    37) Taipa   [optional last name from list]
+    38) 3       [optional update mode]
+    39) 9142    [optional number; random]
+    40) 3
+    41) 0
+    42) 3
+    43) x

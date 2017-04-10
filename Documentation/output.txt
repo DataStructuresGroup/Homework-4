@@ -1,0 +1,1986 @@
+
+[Sun 09.Apr.2017 22:32:44.42] [C:\Users\Nicholas]
+$ "G:\DataStructures\Homework-4 __ VS\Release\Homework4.exe"
+WELCOME TO BLUE-SKY AIRLINES!
+Where we are dedicated to suckering you out of your money!
+---------------------------------------------
+This is a simulation program that provides some flexibility with
+adjusting the link list and minor management tools.  With this program,
+it is possible to generate a reasonable size customer list and perform
+maintenance as needed.  Such maintenance could be removing a customer,
+updating the customer's information, update reservations, change seats,
+and even revise customer's in-flight meals!  Use the menu to navigate
+through this program and try to crash it!  I dare you!
+Looks like I picked the wrong week to quit sniffing glue. -Steve McCroskey
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+<!> ERROR <!>: No entries within the list are present!
+Nothing to print nor report!  Please generate or create a new list.
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 1
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 2
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 3
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 4
+Passenger ID: 9140
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 5
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 6
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 7
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 8
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 9
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 10
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 11
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+Index number: 12
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 13
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 14
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 15
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 16
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 17
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 18
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 2795
+Passenger Name: Ume, Ganit
+Telephone Number: 1000023238
+Reservation Number: 784
+Seat on the plane: 96
+Preferred Meal Plan: Monkey Brains
+
+Index number: 20
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 2
+
+Please provide the following information:
+
+First name: Clarence
+
+Last name: Oveur
+
+Telephone number: 8456879
+
+In-flight meal choice:
+Select a number:
+ 1) Monkey Brains
+ 2) Tuna Eyeballs
+ 3) Raw Octopus
+ 4) Fish
+ 5) Expired Peanuts
+
+>>>>> 4
+Preferred seating arrangement? [Y] = Yes | [N] = No
+>>>>> n
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 2
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 3
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 4
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 5
+Passenger ID: 9140
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 6
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 8
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 9
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 10
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 11
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 12
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+Index number: 13
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 14
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 15
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 16
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 17
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 18
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 20
+Passenger ID: 2795
+Passenger Name: Ume, Ganit
+Telephone Number: 1000023238
+Reservation Number: 784
+Seat on the plane: 96
+Preferred Meal Plan: Monkey Brains
+
+Index number: 21
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 0
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 2
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 3
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 4
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 5
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 6
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 8
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 9
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+Index number: 10
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 11
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 12
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 13
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 14
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 15
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 16
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 17
+Passenger ID: 9140
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 18
+Passenger ID: 2795
+Passenger Name: Ume, Ganit
+Telephone Number: 1000023238
+Reservation Number: 784
+Seat on the plane: 96
+Preferred Meal Plan: Monkey Brains
+
+Index number: 19
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 20
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 21
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 2
+
+Please provide the following information:
+
+First name: Roger
+
+Last name: Murdock
+
+Telephone number: 548976
+
+In-flight meal choice:
+Select a number:
+ 1) Monkey Brains
+ 2) Tuna Eyeballs
+ 3) Raw Octopus
+ 4) Fish
+ 5) Expired Peanuts
+
+>>>>> 1
+Preferred seating arrangement? [Y] = Yes | [N] = No
+>>>>> y
+Preferred seating: 91
+
+This seat is presently not available!
+Preferred seating arrangement? [Y] = Yes | [N] = No
+>>>>> y
+Preferred seating: 46
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 7205
+Passenger Name: Murdock, Roger
+Telephone Number: 548976
+Reservation Number: 1078
+Seat on the plane: 46
+Preferred Meal Plan: Monkey Brains
+
+Index number: 2
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 3
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 4
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 5
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 6
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 8
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 9
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 10
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+Index number: 11
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 12
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 13
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 14
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 15
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 16
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 17
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 18
+Passenger ID: 9140
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 2795
+Passenger Name: Ume, Ganit
+Telephone Number: 1000023238
+Reservation Number: 784
+Seat on the plane: 96
+Preferred Meal Plan: Monkey Brains
+
+Index number: 20
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 21
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 22
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 0
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 9
+
+Nina Albany
+Meal Choice:  Raw Octopus
+
+Ashia Baeddan
+Meal Choice:  Tuna Eyeballs
+
+Yasmine Benicia
+Meal Choice:  Raw Octopus
+
+Al Bundy
+Meal Choice:  Raw Octopus
+
+Hali Eamon
+Meal Choice:  Tuna Eyeballs
+
+Rani Falcon
+Meal Choice:  Tuna Eyeballs
+
+John Hancock
+Meal Choice:  Raw Octopus
+
+Nadalia Hao
+Meal Choice:  Monkey Brains
+
+Roger Murdock
+Meal Choice:  Monkey Brains
+
+Fabian Nadie
+Meal Choice:  Raw Octopus
+
+Reese Nafisa
+Meal Choice:  Fish
+
+Achava Nili
+Meal Choice:  Monkey Brains
+
+Clarence Oveur
+Meal Choice:  Fish
+
+Dan Randi
+Meal Choice:  Fish
+
+Theodore Roosevelt
+Meal Choice:  Raw Octopus
+
+Ofra Sable
+Meal Choice:  Fish
+
+Hana Starr
+Meal Choice:  Tuna Eyeballs
+
+Tai Yang Taipa
+Meal Choice:  Fish
+
+Ganit Ume
+Meal Choice:  Monkey Brains
+
+Qi Wahponjea
+Meal Choice:  Fish
+
+Alexis Wayne
+Meal Choice:  Fish
+
+Janeeva Zaina
+Meal Choice:  Raw Octopus
+
+There are 4 orders for Monkey Brains.
+There are 4 orders for Tuna Eyeballs.
+There are 7 orders for Raw Octopus.
+There are 7 orders for Fish.
+There are 0 orders for Expired Peanuts.
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 8
+
+Nina Albany
+Checked In?:  No
+
+Ashia Baeddan
+Checked In?:  No
+
+Yasmine Benicia
+Checked In?:  No
+
+Al Bundy
+Checked In?:  No
+
+Hali Eamon
+Checked In?:  No
+
+Rani Falcon
+Checked In?:  No
+
+John Hancock
+Checked In?:  No
+
+Nadalia Hao
+Checked In?:  No
+
+Roger Murdock
+Checked In?:  No
+
+Fabian Nadie
+Checked In?:  No
+
+Reese Nafisa
+Checked In?:  No
+
+Achava Nili
+Checked In?:  No
+
+Clarence Oveur
+Checked In?:  No
+
+Dan Randi
+Checked In?:  No
+
+Theodore Roosevelt
+Checked In?:  No
+
+Ofra Sable
+Checked In?:  No
+
+Hana Starr
+Checked In?:  No
+
+Tai Yang Taipa
+Checked In?:  No
+
+Ganit Ume
+Checked In?:  No
+
+Qi Wahponjea
+Checked In?:  No
+
+Alexis Wayne
+Checked In?:  No
+
+Janeeva Zaina
+Checked In?:  No
+
+
+There are 0 Passengers checked in.
+
+There are 22 Passengers not checked in.
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 7
+
+Which passenger would you like to Check in?  Enter their last name:Ume
+Ganit Ume has been checked in.
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 8
+
+Nina Albany
+Checked In?:  No
+
+Ashia Baeddan
+Checked In?:  No
+
+Yasmine Benicia
+Checked In?:  No
+
+Al Bundy
+Checked In?:  No
+
+Hali Eamon
+Checked In?:  No
+
+Rani Falcon
+Checked In?:  No
+
+John Hancock
+Checked In?:  No
+
+Nadalia Hao
+Checked In?:  No
+
+Roger Murdock
+Checked In?:  No
+
+Fabian Nadie
+Checked In?:  No
+
+Reese Nafisa
+Checked In?:  No
+
+Achava Nili
+Checked In?:  No
+
+Clarence Oveur
+Checked In?:  No
+
+Dan Randi
+Checked In?:  No
+
+Theodore Roosevelt
+Checked In?:  No
+
+Ofra Sable
+Checked In?:  No
+
+Hana Starr
+Checked In?:  No
+
+Tai Yang Taipa
+Checked In?:  No
+
+Ganit Ume
+Checked In?:  Yes
+
+Qi Wahponjea
+Checked In?:  No
+
+Alexis Wayne
+Checked In?:  No
+
+Janeeva Zaina
+Checked In?:  No
+
+
+There are 1 Passengers checked in.
+
+There are 21 Passengers not checked in.
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 4
+
+Search for Passenger:
+-----------------------
+ 1) Last name
+ 2) Telephone
+ 3) Reservation ID
+ 4) Passenger ID
+ 5) Seat Number
+ 0) Exit
+
+>>>>> 1
+Enter passenger's last name: Ume
+
+Index number: 1
+Passenger ID: 2795
+Passenger Name: Ume, Ganit
+Telephone Number: 1000023238
+Reservation Number: 784
+Seat on the plane: 96
+Preferred Meal Plan: Monkey Brains
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 6
+
+Which passenger would you like to delete? Enter their last name:  Ume
+The passenger was removed from the list
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 2
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 3
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 4
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 5
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 6
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 8
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 9
+Passenger ID: 7205
+Passenger Name: Murdock, Roger
+Telephone Number: 548976
+Reservation Number: 1078
+Seat on the plane: 46
+Preferred Meal Plan: Monkey Brains
+
+Index number: 10
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+Index number: 11
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 12
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 13
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 14
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 15
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 16
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 17
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 18
+Passenger ID: 9140
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 20
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 21
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 5
+
+Search for Passenger:
+-----------------------
+ 1) Last name
+ 2) Telephone
+ 3) Reservation number
+ 4) Passenger number
+ 5) Seat Number
+ 0) Exit
+
+>>>>> 1
+Enter passenger's last name: Taipa
+
+Information to Update:
+-----------------------
+ 1) Telephone
+ 2) Reservation number
+ 3) Passenger number
+ 4) Seat Number
+ 0) Exit
+
+>>>>> 3
+Current passenger number: 9140
+Enter a new value: 9142
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 2
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 3
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 4
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 5
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 6
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 8
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 9
+Passenger ID: 7205
+Passenger Name: Murdock, Roger
+Telephone Number: 548976
+Reservation Number: 1078
+Seat on the plane: 46
+Preferred Meal Plan: Monkey Brains
+
+Index number: 10
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+Index number: 11
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 12
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 13
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 14
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 15
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 16
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 17
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 18
+Passenger ID: 9142
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 20
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 21
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 0
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> 3
+
+Index number: 1
+Passenger ID: 788
+Passenger Name: Albany, Nina
+Telephone Number: 1000021683
+Reservation Number: 336
+Seat on the plane: 84
+Preferred Meal Plan: Raw Octopus
+
+Index number: 2
+Passenger ID: 6906
+Passenger Name: Baeddan, Ashia
+Telephone Number: 1000024986
+Reservation Number: 329
+Seat on the plane: 85
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 3
+Passenger ID: 4546
+Passenger Name: Benicia, Yasmine
+Telephone Number: 1000030788
+Reservation Number: 803
+Seat on the plane: 51
+Preferred Meal Plan: Raw Octopus
+
+Index number: 4
+Passenger ID: 1745
+Passenger Name: Bundy, Al
+Telephone Number: 1000026657
+Reservation Number: 217
+Seat on the plane: 42
+Preferred Meal Plan: Raw Octopus
+
+Index number: 5
+Passenger ID: 6937
+Passenger Name: Eamon, Hali
+Telephone Number: 1000013183
+Reservation Number: 615
+Seat on the plane: 54
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 6
+Passenger ID: 1975
+Passenger Name: Falcon, Rani
+Telephone Number: 1000002049
+Reservation Number: 199
+Seat on the plane: 57
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 7
+Passenger ID: 1461
+Passenger Name: Hancock, John
+Telephone Number: 1000024311
+Reservation Number: 1069
+Seat on the plane: 93
+Preferred Meal Plan: Raw Octopus
+
+Index number: 8
+Passenger ID: 2857
+Passenger Name: Hao, Nadalia
+Telephone Number: 1000019268
+Reservation Number: 361
+Seat on the plane: 48
+Preferred Meal Plan: Monkey Brains
+
+Index number: 9
+Passenger ID: 7205
+Passenger Name: Murdock, Roger
+Telephone Number: 548976
+Reservation Number: 1078
+Seat on the plane: 46
+Preferred Meal Plan: Monkey Brains
+
+Index number: 10
+Passenger ID: 7620
+Passenger Name: Nadie, Fabian
+Telephone Number: 1000005424
+Reservation Number: 162
+Seat on the plane: 88
+Preferred Meal Plan: Raw Octopus
+
+Index number: 11
+Passenger ID: 4114
+Passenger Name: Nafisa, Reese
+Telephone Number: 1000012595
+Reservation Number: 210
+Seat on the plane: 52
+Preferred Meal Plan: Fish
+
+Index number: 12
+Passenger ID: 1039
+Passenger Name: Nili, Achava
+Telephone Number: 1000004614
+Reservation Number: 620
+Seat on the plane: 65
+Preferred Meal Plan: Monkey Brains
+
+Index number: 13
+Passenger ID: 934
+Passenger Name: Oveur, Clarence
+Telephone Number: 8456879
+Reservation Number: 407
+Seat on the plane: 64
+Preferred Meal Plan: Fish
+
+Index number: 14
+Passenger ID: 7588
+Passenger Name: Randi, Dan
+Telephone Number: 1000030665
+Reservation Number: 624
+Seat on the plane: 92
+Preferred Meal Plan: Fish
+
+Index number: 15
+Passenger ID: 7145
+Passenger Name: Roosevelt, Theodore
+Telephone Number: 1000022362
+Reservation Number: 764
+Seat on the plane: 6
+Preferred Meal Plan: Raw Octopus
+
+Index number: 16
+Passenger ID: 6587
+Passenger Name: Sable, Ofra
+Telephone Number: 1000002017
+Reservation Number: 232
+Seat on the plane: 86
+Preferred Meal Plan: Fish
+
+Index number: 17
+Passenger ID: 3770
+Passenger Name: Starr, Hana
+Telephone Number: 1000007406
+Reservation Number: 475
+Seat on the plane: 71
+Preferred Meal Plan: Tuna Eyeballs
+
+Index number: 18
+Passenger ID: 9142
+Passenger Name: Taipa, Tai Yang
+Telephone Number: 1000007381
+Reservation Number: 303
+Seat on the plane: 53
+Preferred Meal Plan: Fish
+
+Index number: 19
+Passenger ID: 7111
+Passenger Name: Wahponjea, Qi
+Telephone Number: 1000014596
+Reservation Number: 915
+Seat on the plane: 45
+Preferred Meal Plan: Fish
+
+Index number: 20
+Passenger ID: 4402
+Passenger Name: Wayne, Alexis
+Telephone Number: 1000023852
+Reservation Number: 328
+Seat on the plane: 36
+Preferred Meal Plan: Fish
+
+Index number: 21
+Passenger ID: 7638
+Passenger Name: Zaina, Janeeva
+Telephone Number: 1000008617
+Reservation Number: 635
+Seat on the plane: 91
+Preferred Meal Plan: Raw Octopus
+
+
+
+
+
+
+
+Select an option:
+====================
+[1] - Automatically Generate a Customer List
+[2] - Manually add a new customer
+[3] - Print all customer information
+[4] - Search for a passenger
+[5] - Update passenger information
+[6] - Remove passenger from list
+[7] - Check in passenger
+[8] - Print check in report
+[9] - Print menu report
+[0] - Sort passenger list
+[X] - Exit
+
+>>>>> x
+
+
+
+
+
+
+
+
+[Sun 09.Apr.2017 22:39:28.56] [C:\Users\Nicholas]
+$
